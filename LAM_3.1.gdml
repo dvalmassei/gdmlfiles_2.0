@@ -675,7 +675,7 @@
     <positionref ref="pmt1_blackPlate_pos" />
     <rotationref ref="pmt1_blackPlate_rot" />
    </physvol>
-<!---
+
    <physvol name="pmt2_window_phys">
     <volumeref ref="pmt_window_vol" />
     <positionref ref="pmt2_window_pos" />
@@ -693,7 +693,7 @@
     <positionref ref="pmt2_blackPlate_pos" />
     <rotationref ref="pmt2_blackPlate_rot" />
    </physvol>
--->
+   
   </volume>
 
 
@@ -793,12 +793,12 @@
     <physvolref ref="pmt1_cathode_phys"/>
   </bordersurface>
 
-<!---
+
   <bordersurface name="bordersrf2" surfaceproperty="surf2" >
     <physvolref ref="pmt2_window_phys"/>
     <physvolref ref="pmt2_cathode_phys"/>
   </bordersurface>
--->
+
 
 
 
