@@ -47,18 +47,18 @@
         <second ref="radiator_cut"/>
 		<position name="right_rad_cut_pos" unit="mm" x="length/2 - chamfer" y="height/2 - 10" z="0" />
 		<rotation name="right_rad_cut_rot" unit="deg" x="0" y="0" z="0" />
-        </subtraction>
+    </subtraction>
 
     <subtraction name="radiator" >
         <first ref="radiator_1_cut"/>
         <second ref="radiator_cut"/>
 		<position name="left_rad_cut_pos" unit="mm" x="-length/2 - 1 " y="height/2 - 10" z="0" />
 		<rotation name="left_rad_cut_rot" unit="deg" x="0" y="0" z="0" />
-        </subtraction>
-
+    </subtraction>
+<!--
     <tube name="solid_pmt_window" rmin="0" rmax="38.1" z="3.0" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
     <tube name="solid_pmt_cathode" rmin="0" rmax="38.1" z="3e-06" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
-	
+-->	
 	</solids>
 
 <structure>
@@ -66,8 +66,8 @@
     <volume name="radiator_quartz_vol" >
         <materialref ref="Quartz" />
         <solidref ref="radiator" />
-        </volume>
-
+    </volume>
+<!--
 	<volume name="pmt_window_vol" >
         <materialref ref="Quartz" />
         <solidref ref="solid_pmt_window" />
@@ -78,7 +78,7 @@
         <solidref ref="solid_pmt_cathode" />
         <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
         </volume>
-
+-->
 	<!--End LOGIC VOLUMES-->
 
 	<!--Begin PHYSICAL VOLUMES-->
@@ -91,10 +91,10 @@
             <volumeref ref="radiator_quartz_vol" />
             <position name="radiator_quartz_pos" unit="mm" x="0" y="0" z="0" />
 	        <rotation name="radiator_quartz_rot" unit="deg" x="0" y="180" z="0" />
-            </physvol>
+        </physvol>
 		
 		<!--PMTs-->
-
+<!---
         <physvol name="pmt1_window_phys">
             <volumeref ref="pmt_window_vol" />
             <position name="pmt1_window_pos" unit="mm" x="length/2-chamfer/2" y="height/2 + d6/2 + d4 -10" z="thickness/2 +3.0/2.0 + d3 + 0.5" />
@@ -106,7 +106,7 @@
             <position name="pmt2_window_pos" unit="mm" x="-(length/2-chamfer/2)" y="height/2 + d6/2 + d4 -10" z="thickness/2 +3.0/2.0 + d3 + 0.5" />
             <rotation name="pmt2_window_rot" unit="radian" x="0" y="0" z="0" />
             </physvol>
-<!--
+
 		<physvol name="pmt2_window_phys">
             <volumeref ref="pmt_window_vol" />
             <position name="pmt1_cathode_pos" unit="mm" x="length/2-chamfer/2" y="height/2 + d6/2 + d4 -10" z="thickness/2 +3+3e-06/2.0 + d3 + 0.5" />
@@ -128,7 +128,7 @@
             <volumeref ref="DetBox_vol" />
             <position name="DetBox_pos" unit="mm" x="0" y="0" z="0" />
 	        <rotation name="DetBox_rot" unit="deg" x="0" y="0" z="0" />
-            </physvol>
+        </physvol>
 
         <!--
         <physvol name="Collar2_OuterRing_phys">
@@ -160,9 +160,9 @@
             <volumeref ref="DetBox2_vol" />
             <position name="DetBox2_pos" unit="mm" x="0" y="0" z="163.5" />
 	        <rotation name="DetBox2_rot" unit="deg" x="0" y="0" z="0" />
-            </physvol>
+        </physvol>
 
-        </volume>
+    </volume>
 	<!--End PHYSICAL VOLUMES-->
 	<!--PMT Surfaces
     <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
@@ -181,7 +181,7 @@
 		<volumeref ref="pmt1_cathode_phys"/>
 	    </skinsurface>
     -->
-    </structure>
+</structure>
 
 <setup name="Default" version="1.0" >
 	<world ref="World" />
