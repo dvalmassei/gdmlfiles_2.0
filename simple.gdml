@@ -56,6 +56,15 @@
     <tube name="solid_pmt_window" rmin="0" rmax="38.1" z="3.0" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
     <tube name="solid_pmt_cathode" rmin="0" rmax="38.1" z="3e-06" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
 
+
+    <!--Optical Properties-->
+    <opticalsurface name="quartz_surface" model="glisur" finish="ground" type="dielectric_dielectric" value="0.98" >
+    </opticalsurface>
+
+    <opticalsurface name="cathode_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
+        <property name="EFFICIENCY" ref="Cathode_Surf_Efficiency" />
+        <property name="REFLECTIVITY" ref="Cathode_Surf_Reflectivity" />
+    </opticalsurface>
     </solids>
 
 
@@ -116,7 +125,7 @@
     
     </volume>
 
-  <volume name="World" >
+    <volume name="World" >
         <materialref ref="vacuum" />
         <solidref ref="WorldBox" />
 
@@ -129,6 +138,25 @@
 
     </volume>
   
+
+  <!--PMT Surfaces-->
+    <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
+		<volumeref ref="pmt1_window_phys"/>
+	    </skinsurface>
+  
+    <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
+		<volumeref ref="pmt2_window_phys"/>
+	    </skinsurface>
+
+    <skinsurface name="cathode_skin_surface" surfaceproperty="cathode_surface" >
+		<volumeref ref="pmt2_cathode_phys"/>
+	    </skinsurface>
+
+    <skinsurface name="cathode_skin_surface" surfaceproperty="cathode_surface" >
+		<volumeref ref="pmt1_cathode_phys"/>
+	    </skinsurface>
+
+
   </structure>
 
 
