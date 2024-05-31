@@ -81,7 +81,7 @@
         </volume>
 
     <volume name="pmt1_cathode_logic" >
-        <materialref ref="Bialkali" />
+        <materialref ref="Quartz" />
         <solidref ref="solid_pmt_cathode" />
         <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
         </volume>
@@ -92,7 +92,7 @@
         </volume>
 
     <volume name="pmt2_cathode_logic" >
-        <materialref ref="Bialkali" />
+        <materialref ref="Quartz" />
         <solidref ref="solid_pmt_cathode" />
         <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
         </volume>
