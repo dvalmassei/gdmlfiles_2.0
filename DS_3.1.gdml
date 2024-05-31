@@ -11,42 +11,12 @@
 
 
 <gdml xmlns:xsi="http://www.w3.org/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd" >
- <define>
+<define>
 
-   <constant name="length" value="500" />
-   <constant name="tubeRad" value="51/2" />
-   <constant name="coneLength" value="tubeRad - 7.07" />
+  <constant name="length" value="500" />
+  <constant name="tubeRad" value="51/2" />
+  <constant name="coneLength" value="tubeRad - 7.07" />
 
-
-
-
-  <matrix coldim="2" name="ABSLENGTH_LUCITE" values="
-  1.54986*eV 1*mm
-  1.77127*eV 1*mm
-  2.06648*eV 1*mm
-  2.47978*eV 200000*mm
-  2.75556*eV 3670*mm
-  3.09973*eV 1780*mm
-  3.30667*eV 360*mm
-  3.54286*eV 100*mm
-  3.81538*eV 70*mm
-  4.13297*eV 20*mm
-  4.95956*eV 1*mm
-  5.51063*eV 1*mm
-  5.90424*eV 1*mm"/>
-
-
-
- <matrix coldim="2" name="RINDEX_LUCITE" values="
-   1.54986*eV 1.45338
-   1.77127*eV 1.45536
-   2.06648*eV 1.4581
-   2.47978*eV 1.46239
-   3.09973*eV 1.47018
-   4.13297*eV 1.48786
-   4.95956*eV 1.50751
-   5.51063*eV 1.52422
-   5.90424*eV 1.53842"/>
 
 
   <position name="DetBox_pos" unit="mm" x="0" y="0" z="0" />
@@ -87,49 +57,49 @@
   <rotation name="lightguide_plate5_rot" unit="deg" x="0" y="90" z="90" />
 
   &matrices;
- </define>
+  </define>
 
- <materials>
+<materials>
   <define>
    <quantity type="density" name="universe_mean_density" value="0.00000001" unit="g/cm3" />
   </define>
   <element Z="1" formula="H" name="Hydrogen" >
-   <atom value="1" />
-  </element>
+    <atom value="1" />
+    </element>
   <element Z="6" formula="C" name="Carbon" >
-   <atom value="12" />
-  </element>
+    <atom value="12" />
+    </element>
   <element Z="8" formula="O" name="Oxygen" >
-   <atom value="16" />
-  </element>
+    <atom value="16" />
+    </element>
   <element Z="7" formula="N" name="Nitrogen" >
-   <atom value="14.01" />
-  </element>
+    <atom value="14.01" />
+    </element>
   <element Z="14" formula="Si" name="Silicon" >
-   <atom value="28.085" />
-  </element>
+    <atom value="28.085" />
+    </element>
   <element Z="13" formula="Al" name="Aluminum" >
-   <atom value="26.982" />
-  </element>
+    <atom value="26.982" />
+    </element>
   <element Z="51" formula="Sb" name="Antimony" >
-   <atom value="121.760" />
-  </element>
+    <atom value="121.760" />
+    </element>
   <element Z="55" formula="Cs" name="Caesium" >
-   <atom value="132.90545" />
-  </element>
+    <atom value="132.90545" />
+    </element>
   <element Z="74" formula="W" name="Tungsten" >
-   <atom value="183.84" />
-  </element>
+    <atom value="183.84" />
+    </element>
   <element Z="19" formula="K" name="Potassium" >
-   <atom value="39.0983" />
-  </element>
+    <atom value="39.0983" />
+    </element>
   <material formula="noFormula" name="Air" >
-   <property name="RINDEX" ref="Air_RINDEX"/>
-   <property name="ABSLENGTH" ref="AIR_ABSLENGTH"/>
-   <D value="0.00129" />
-   <fraction n="0.3" ref="Oxygen" />
-   <fraction n="0.7" ref="Nitrogen" />
-  </material>
+    <property name="RINDEX" ref="Air_RINDEX"/>
+    <property name="ABSLENGTH" ref="AIR_ABSLENGTH"/>
+    <D value="0.00129" />
+    <fraction n="0.3" ref="Oxygen" />
+    <fraction n="0.7" ref="Nitrogen" />
+    </material>
   <material Z="1" name="vacuum" state="gas">
     <T unit="K" value="2.73"/>
     <P unit="pascal" value="3e-18"/>
@@ -137,258 +107,232 @@
     <atom unit="g/mole" value="1.01"/>
     <property name="RINDEX" ref="RINDEX_VACUUM"/>
     <property name="ABSLENGTH" ref="ABSLENGTH_VACUUM"/>
-  </material>
+    </material>
   <material formula="SiO2" name="Quartz" >
-   <property name="RINDEX" ref="Quartz_RINDEX"/>
-   <property name="ABSLENGTH" ref="Quartz_ABSLENGTH"/>
-   <D value="2.203" />
-   <composite n="1" ref="Silicon" />
-   <composite n="2" ref="Oxygen" />
-  </material>
+    <property name="RINDEX" ref="Quartz_RINDEX"/>
+    <property name="ABSLENGTH" ref="Quartz_ABSLENGTH"/>
+    <D value="2.203" />
+    <composite n="1" ref="Silicon" />
+    <composite n="2" ref="Oxygen" />
+    </material>
   <material formula="K2CsSb" name="Bialkali" >
-   <D value="3.46" />
-   <composite n="2" ref="Potassium" />
-   <composite n="1" ref="Caesium" />
-   <composite n="1" ref="Antimony" />
-  </material>
+    <D value="3.46" />
+    <composite n="2" ref="Potassium" />
+    <composite n="1" ref="Caesium" />
+    <composite n="1" ref="Antimony" />
+    </material>
   <material formula="Al" name="Al_mat" >
-   <D value="2.6982" />
-   <!--need to add properties-->
-   <composite n="1" ref="Aluminum" />
-  </material>
+    <D value="2.6982" />
+    <!--need to add properties-->
+    <composite n="1" ref="Aluminum" />
+    </material>
   <material formula="W" name="W_mat" >
-   <D value="19.82" />
-   <composite n="1" ref="Tungsten" />
-  </material>
+    <D value="19.82" />
+    <composite n="1" ref="Tungsten" />
+    </material>
+
+  </materials>
+
+<solids>
+  <box lunit="mm" name="WorldBox" x="2000" y="1500" z="1500"/>
+  <box lunit="mm" name="DetBox" x="1900" y="1200" z="100"/>
 
 
-  <!--Lucite-->
-  <material name="Lucite" formula="(C5O2H8)n" state="solid">
-    <MEE value="125.663" unit="eV"/>
-    <D value="1.18" unit="g/cm3"/>
-    <fraction n="0.080538" ref="Hydrogen"/>
-    <fraction n="0.599848" ref="Carbon"/>
-    <fraction n="0.319614" ref="Oxygen"/>
-    <property name="ABSLENGTH" ref="ABSLENGTH_LUCITE"/>
-    <property name="RINDEX"    ref="RINDEX_LUCITE"/>
-  </material>
-
- </materials>
-
- <solids>
-   <box lunit="mm" name="WorldBox" x="2000" y="1500" z="1500"/>
-   <box lunit="mm" name="DetBox" x="1900" y="1200" z="100"/>
+  <tube name="solid_pmt_window" rmin="0" rmax="38.1" z="3.0" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
+  <tube name="solid_pmt_cathode" rmin="0" rmax="38.1" z="3e-06" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
 
 
-   <tube name="solid_pmt_window" rmin="0" rmax="38.1" z="3.0" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
-   <tube name="solid_pmt_cathode" rmin="0" rmax="38.1" z="3e-06" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
+  <box lunit="mm" name="quartz" x="9.9" y="9.9" z="9.9"/>
+  <box lunit="mm" name="preRad" x="10" y="10" z="10"/>
 
+  <cone name="lightguide_cone" lunit="mm" aunit="rad" startphi="0" deltaphi="2*pi" rmin1="7.07" rmax1="7.57" rmin2="tubeRad" rmax2="tubeRad + 0.5" z="coneLength"/>
+  <tube name="lightguide_tube" rmin="tubeRad" rmax="tubeRad + 0.5" z="length - coneLength" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
 
-   <box lunit="mm" name="quartz" x="9.9" y="9.9" z="9.9"/>
-   <box lunit="mm" name="preRad" x="10" y="10" z="10"/>
+  <box lunit="mm" name="lightguide_plate" x="10" y="10" z="0.5"/>
 
-   <cone name="lightguide_cone" lunit="mm" aunit="rad" startphi="0" deltaphi="2*pi" rmin1="7.07" rmax1="7.57" rmin2="tubeRad" rmax2="tubeRad + 0.5" z="coneLength"/>
-   <tube name="lightguide_tube" rmin="tubeRad" rmax="tubeRad + 0.5" z="length - coneLength" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
+  <!--Optical Properties-->
+  <!--Quartz-->
+  <opticalsurface name="surf1" model="glisur" finish="ground" type="dielectric_dielectric" value="0.98">
+    </opticalsurface>
+  <!--Aluminum-->
+  <opticalsurface name="surf3" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
+    <property name="REFLECTIVITY" ref="Aluminium_Surf_Reflectivity" />
+    </opticalsurface>
 
-   <box lunit="mm" name="lightguide_plate" x="10" y="10" z="0.5"/>
+  <!--Mylar-->
+  <opticalsurface name="surf4" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
+    <property name="REFLECTIVITY" ref="REFLECTIVITY_MYLAR" />
+    </opticalsurface>
 
-
-
-
-   <!--Optical Properties-->
-   <!--Quartz-->
-   <opticalsurface name="surf1" model="glisur" finish="ground" type="dielectric_dielectric" value="0.98">
-   </opticalsurface>
-   <!--Aluminum-->
-   <opticalsurface name="surf3" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
-     <property name="REFLECTIVITY" ref="Aluminium_Surf_Reflectivity" />
-   </opticalsurface>
-
-
-   <!--Mylar-->
-   <opticalsurface name="surf4" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
-     <property name="REFLECTIVITY" ref="REFLECTIVITY_MYLAR" />
-   </opticalsurface>
-
-
-   <!--Cathode-->
-   <opticalsurface name="surf2" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
-     <property name="REFLECTIVITY" ref="Cathode_Surf_Reflectivity" />
-     <property name="EFFICIENCY" ref="Cathode_Surf_Efficiency" />
-   </opticalsurface>
+  <!--Cathode-->
+  <opticalsurface name="surf2" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
+    <property name="REFLECTIVITY" ref="Cathode_Surf_Reflectivity" />
+    <property name="EFFICIENCY" ref="Cathode_Surf_Efficiency" />
+    </opticalsurface>
 
 
 
 
- </solids>
+  </solids>
 
-  <structure>
-    <!--Quartz-->
-    <volume name="quartz_vol">
-      <materialref ref="Lucite" />
-      <solidref ref="quartz" />
+<structure>
+  <!--Quartz-->
+  <volume name="quartz_vol">
+    <materialref ref="Lucite" />
+    <solidref ref="quartz" />
     </volume>
 
-    <volume name="preRad_vol">
-      <materialref ref="W_mat" />
-      <solidref ref="preRad" />
+  <volume name="preRad_vol">
+    <materialref ref="W_mat" />
+    <solidref ref="preRad" />
     </volume>
 
-    <volume name="pmt_window_vol" >
-     <materialref ref="Quartz" />
-     <solidref ref="solid_pmt_window" />
-     <auxiliary auxtype="Color" auxvalue="red"/>
+  <volume name="pmt_window_vol" >
+    <materialref ref="Quartz" />
+    <solidref ref="solid_pmt_window" />
+    <auxiliary auxtype="Color" auxvalue="red"/>
     </volume>
 
-    <volume name="pmt_cathode_vol" >
-     <materialref ref="Bialkali" />
-     <solidref ref="solid_pmt_cathode" />
-     <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
-     <auxiliary auxtype="Color" auxvalue="blue"/>
+  <volume name="pmt_cathode_vol" >
+    <materialref ref="Bialkali" />
+    <solidref ref="solid_pmt_cathode" />
+    <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
+    <auxiliary auxtype="Color" auxvalue="blue"/>
     </volume>
 
-    <volume name="lightguide_cone_vol">
-      <materialref ref="Al_mat"/>
-      <solidref ref="lightguide_cone"/>
+  <volume name="lightguide_cone_vol">
+    <materialref ref="Al_mat"/>
+    <solidref ref="lightguide_cone"/>
     </volume>
 
-    <volume name="lightguide_tube_vol">
-      <materialref ref="Al_mat"/>
-      <solidref ref="lightguide_tube"/>
+  <volume name="lightguide_tube_vol">
+    <materialref ref="Al_mat"/>
+    <solidref ref="lightguide_tube"/>
     </volume>
 
-    <volume name="lightguide_plate_vol">
-      <materialref ref="Al_mat"/>
-      <solidref ref="lightguide_plate"/>
+  <volume name="lightguide_plate_vol">
+    <materialref ref="Al_mat"/>
+    <solidref ref="lightguide_plate"/>
     </volume>
 
 
+  <!--Detector Assembly-->
+  <volume name="DetBox_vol" >
+    <materialref ref="vacuum" />
+    <solidref ref="DetBox" />
 
-
-
-
-
-    <!--Detector Assembly-->
-    <volume name="DetBox_vol" >
-      <materialref ref="vacuum" />
-      <solidref ref="DetBox" />
-
-      <physvol name="quartz_phys">
-        <volumeref ref="quartz_vol" />
-        <positionref ref="quartz_pos" />
-        <rotationref ref="quartz_rot" />
+    <physvol name="quartz_phys">
+      <volumeref ref="quartz_vol" />
+      <positionref ref="quartz_pos" />
+      <rotationref ref="quartz_rot" />
       </physvol>
 
-<!--
-      <physvol name="preRad_phys">
-        <volumeref ref="preRad_vol" />
-        <positionref ref="preRad_pos" />
-        <rotationref ref="preRad_rot" />
+    <!--
+    <physvol name="preRad_phys">
+      <volumeref ref="preRad_vol" />
+      <positionref ref="preRad_pos" />
+      <rotationref ref="preRad_rot" />
       </physvol>
--->
+    -->
 
-      <physvol name="pmt1_window_phys">
-       <volumeref ref="pmt_window_vol" />
-       <positionref ref="pmt1_window_pos" />
-       <rotationref ref="pmt1_window_rot" />
+    <physvol name="pmt1_window_phys">
+      <volumeref ref="pmt_window_vol" />
+      <positionref ref="pmt1_window_pos" />
+      <rotationref ref="pmt1_window_rot" />
       </physvol>
 
-      <physvol name="pmt1_cathode_phys">
-       <volumeref ref="pmt_cathode_vol" />
-       <positionref ref="pmt1_cathode_pos" />
-       <rotationref ref="pmt1_cathode_rot" />
+    <physvol name="pmt1_cathode_phys">
+      <volumeref ref="pmt_cathode_vol" />
+      <positionref ref="pmt1_cathode_pos" />
+      <rotationref ref="pmt1_cathode_rot" />
       </physvol>
 
 
-      <physvol name="lightguide_cone_phys">
-       <volumeref ref="lightguide_cone_vol" />
-       <positionref ref="lightguide_cone_pos" />
-       <rotationref ref="lightguide_cone_rot" />
+    <physvol name="lightguide_cone_phys">
+      <volumeref ref="lightguide_cone_vol" />
+      <positionref ref="lightguide_cone_pos" />
+      <rotationref ref="lightguide_cone_rot" />
       </physvol>
 
-      <physvol name="lightguide_tube_phys">
-       <volumeref ref="lightguide_tube_vol" />
-       <positionref ref="lightguide_tube_pos" />
-       <rotationref ref="lightguide_tube_rot" />
+    <physvol name="lightguide_tube_phys">
+      <volumeref ref="lightguide_tube_vol" />
+      <positionref ref="lightguide_tube_pos" />
+      <rotationref ref="lightguide_tube_rot" />
       </physvol>
 
 
-      <physvol name="lightguide_plate1_phys">
-       <volumeref ref="lightguide_plate_vol" />
-       <positionref ref="lightguide_plate1_pos" />
-       <rotationref ref="lightguide_plate1_rot" />
+    <physvol name="lightguide_plate1_phys">
+      <volumeref ref="lightguide_plate_vol" />
+      <positionref ref="lightguide_plate1_pos" />
+      <rotationref ref="lightguide_plate1_rot" />
       </physvol>
 
-      <physvol name="lightguide_plate2_phys">
-       <volumeref ref="lightguide_plate_vol" />
-       <positionref ref="lightguide_plate2_pos" />
-       <rotationref ref="lightguide_plate2_rot" />
+    <physvol name="lightguide_plate2_phys">
+      <volumeref ref="lightguide_plate_vol" />
+      <positionref ref="lightguide_plate2_pos" />
+      <rotationref ref="lightguide_plate2_rot" />
       </physvol>
 
-      <physvol name="lightguide_plate3_phys">
-       <volumeref ref="lightguide_plate_vol" />
-       <positionref ref="lightguide_plate3_pos" />
-       <rotationref ref="lightguide_plate3_rot" />
+    <physvol name="lightguide_plate3_phys">
+      <volumeref ref="lightguide_plate_vol" />
+      <positionref ref="lightguide_plate3_pos" />
+      <rotationref ref="lightguide_plate3_rot" />
       </physvol>
 
-      <physvol name="lightguide_plate4_phys">
-       <volumeref ref="lightguide_plate_vol" />
-       <positionref ref="lightguide_plate4_pos" />
-       <rotationref ref="lightguide_plate4_rot" />
+    <physvol name="lightguide_plate4_phys">
+      <volumeref ref="lightguide_plate_vol" />
+      <positionref ref="lightguide_plate4_pos" />
+      <rotationref ref="lightguide_plate4_rot" />
       </physvol>
 
-      <physvol name="lightguide_plate5_phys">
-       <volumeref ref="lightguide_plate_vol" />
-       <positionref ref="lightguide_plate5_pos" />
-       <rotationref ref="lightguide_plate5_rot" />
+    <physvol name="lightguide_plate5_phys">
+      <volumeref ref="lightguide_plate_vol" />
+      <positionref ref="lightguide_plate5_pos" />
+      <rotationref ref="lightguide_plate5_rot" />
       </physvol>
 
 
     </volume>
 
 
+  <!--World Assembly-->
+  <volume name="World" >
+    <materialref ref="Air" />
+    <solidref ref="WorldBox" />
 
-
-
-    <!--World Assembly-->
-    <volume name="World" >
-      <materialref ref="Air" />
-      <solidref ref="WorldBox" />
-
-      <physvol name="DetBox_phys" >
-        <volumeref ref="DetBox_vol" />
-        <positionref ref="DetBox_pos"/>
-        <rotationref ref="DetBox_rot"/>
+    <physvol name="DetBox_phys" >
+      <volumeref ref="DetBox_vol" />
+      <positionref ref="DetBox_pos"/>
+      <rotationref ref="DetBox_rot"/>
       </physvol>
 
     </volume>
 
 
-    <skinsurface name="skinsrf2" surfaceproperty="surf3" >
-      <volumeref ref="lightguide_cone_vol"/>
+  <skinsurface name="skinsrf2" surfaceproperty="surf3" >
+    <volumeref ref="lightguide_cone_vol"/>
     </skinsurface>
 
-    <skinsurface name="skinsrf3" surfaceproperty="surf3" >
-      <volumeref ref="lightguide_tube_vol"/>
+  <skinsurface name="skinsrf3" surfaceproperty="surf3" >
+    <volumeref ref="lightguide_tube_vol"/>
     </skinsurface>
-<!--
-    <skinsurface name="skinsrf4" surfaceproperty="surf3" >
-      <volumeref ref="lightguide_plate_vol"/>
+  <!--
+  <skinsurface name="skinsrf4" surfaceproperty="surf3" >
+    <volumeref ref="lightguide_plate_vol"/>
     </skinsurface>
--->
-    <skinsurface name="skinsrf1" surfaceproperty="surf1" >
-      <volumeref ref="quartz_vol"/>
+    -->
+  <skinsurface name="skinsrf1" surfaceproperty="surf1" >
+    <volumeref ref="quartz_vol"/>
     </skinsurface>
 
-    <bordersurface name="bordersrf1" surfaceproperty="surf2" >
+  <bordersurface name="bordersrf1" surfaceproperty="surf2" >
       <physvolref ref="pmt1_window_phys"/>
       <physvolref ref="pmt1_cathode_phys"/>
-    </bordersurface>
+      </bordersurface>
 
 
 
   </structure>
-
 
   <setup name="Default" version="1.0" >
    <world ref="World" />

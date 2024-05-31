@@ -397,12 +397,12 @@
     <materialref ref="Al_mat"/>
     <solidref ref="lightguide_bot"/>
   </volume>
-<!--
+  <!--
   <volume name="backPlate_vol">
     <materialref ref="Al_mat"/>
     <solidref ref="lightguide_back"/>
   </volume>
--->
+  -->
   <!--End Light Guide Pieces-->
 
 
