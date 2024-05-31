@@ -94,28 +94,28 @@
             </physvol>
 		
 		<!--PMTs-->
-		<physvol name="pmt1_window_phys">
+        <physvol name="pmt1_window_phys">
             <volumeref ref="pmt_window_vol" />
-            <positionref ref="pmt1_window_pos" />
-            <rotationref ref="pmt1_window_rot" />
+            <position name="pmt1_window_pos" unit="mm" x="length/2-chamfer/2" y="height/2 + d6/2 + d4 -10" z="thickness/2 +3.0/2.0 + d3 + 0.5" />
+            <rotation name="pmt1_window_rot" unit="radian" x="0" y="0" z="0" />
             </physvol>
 
         <physvol name="pmt1_cathode_phys">
             <volumeref ref="pmt_cathode_vol" />
-            <positionref ref="pmt1_cathode_pos" />
-            <rotationref ref="pmt1_cathode_rot" />
+            <position name="pmt2_window_pos" unit="mm" x="-(length/2-chamfer/2)" y="height/2 + d6/2 + d4 -10" z="thickness/2 +3.0/2.0 + d3 + 0.5" />
+            <rotation name="pmt2_window_rot" unit="radian" x="0" y="0" z="0" />
             </physvol>
 
 		<physvol name="pmt2_window_phys">
             <volumeref ref="pmt_window_vol" />
-            <positionref ref="pmt2_window_pos" />
-            <rotationref ref="pmt2_window_rot" />
+            <position name="pmt1_cathode_pos" unit="mm" x="length/2-chamfer/2" y="height/2 + d6/2 + d4 -10" z="thickness/2 +3+3e-06/2.0 + d3 + 0.5" />
+            <rotation name="pmt1_cathode_rot" unit="radian" x="0" y="0" z="0" />
             </physvol>
 
         <physvol name="pmt2_cathode_phys">
             <volumeref ref="pmt_cathode_vol" />
-            <positionref ref="pmt2_cathode_pos" />
-            <rotationref ref="pmt2_cathode_rot" />
+            <position name="pmt2_cathode_pos" unit="mm" x="-(length/2-chamfer/2)" y="height/2 + d6/2 + d4 -10" z="thickness/2 +3+3e-06/2.0 + d3 + 0.5" />
+            <rotation name="pmt2_cathode_rot" unit="radian" x="0" y="0" z="0" />
             </physvol>
 
 	<volume name="DetBox2_vol" >
