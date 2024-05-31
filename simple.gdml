@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE gdml [
+	<!ENTITY matrices SYSTEM "showerMaxMatrices.xml">
+	<!ENTITY materials SYSTEM "showerMaxMaterials.xml">
+    ]>
+
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+<define>
+
+
+  <!-- Radiator and Light Guide Parameters-->
+  <constant name="thickness" value="10" />
+  <constant name="offset" value="60" />
+
+  <constant name="d1" value="thickness + 0.5" />
+  <constant name="d2" value="35.9" />
+  <constant name="d3" value="25.4" />
+  <constant name="d4" value="0" />
+  <constant name="d6" value="70" />
+  <constant name="chamfer" value="70" />
+  <constant name="length" value="250" />
+  <constant name="height" value="165" />
+  <constant name="detBox_r" value="1033.5 + height/2"/>
+
+
+  &matrices;
+	</define>
+
+&materials;   
+
+
+<solids>
+  <box lunit="mm" name="WorldBox" x="7000" y="7000" z="7000"/>
+  <box lunit="mm" name="DetBox_1" x="500" y="500" z="200"/>
+
+  <box lunit="mm" name="radiator_quartz" x="length" y="height" z="thickness"/>
+
+  <box lunit="mm" name="radiator_quartz_cut2" x="length" y="5" z="thickness"/>
+
+  <arb8 name="radiator_cut" v1x="0" v1y="-1" v2x="0" v2y="11" v3x="chamfer + 1" v3y="11"
+    v4x="chamfer + 1" v4y="-1" v5x="0" v5y="11" v6x="0" v6y="11" v7x="chamfer + 1" v7y="11"
+    v8x="chamfer + 1" v8y="11" dz="12/2" lunit= "mm"/>
+
+  <subtraction name="radiator_1_cut" >
+    <first ref="radiator_quartz"/>
+    <second ref="radiator_cut"/>
+    <positionref ref="right_rad_cut_pos"/>
+    <rotationref ref="right_rad_cut_rot"/>
+  </subtraction>
+
+  <subtraction name="radiator_2_cut" >
+    <first ref="radiator_1_cut"/>
+    <second ref="radiator_cut"/>
+    <positionref ref="left_rad_cut_pos"/>
+    <rotationref ref="left_rad_cut_rot"/>
+  </subtraction>
+
+  </solids>
+
+
+<structure>
+  <volume name="radiator_quartz_vol" >
+   <materialref ref="Quartz" />
+   <solidref ref="radiator_2_cut" />
+    </volume>
+
+
+  <volume name="DetBox_vol" >
+    <materialref ref="vacuum" />
+    <solidref ref="DetBox" />
+
+
+    <physvol name="radiator_quartz_phys">
+      <volumeref ref="radiator_quartz_vol" />
+      <positionref ref="radiator_quartz_pos" />
+      <rotationref ref="radiator_quartz_rot" />
+      </physvol>
+    </volume>
+
+  <volume name="World" >
+    <materialref ref="vacuum" />
+    <solidref ref="WorldBox" />
+
+
+    <physvol name="DetBox_phys" >
+      <volumeref ref="DetBox_vol" />
+      <positionref ref="DetBox_pos"/>
+      <rotationref ref="DetBox_rot"/>
+      </physvol>
+
+    </volume>
+  
+
+  </structure>
+
+<setup name="Default" version="1.0" >
+	<world ref="World" />
+  </setup>
+</gdml>
