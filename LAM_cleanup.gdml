@@ -164,7 +164,7 @@
 
         </volume>
 	<!--End PHYSICAL VOLUMES-->
-	<!--PMT Surfaces-->
+	<!--PMT Surfaces
     <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
 		<volumeref ref="pmt1_window_phys"/>
 	    </skinsurface>
@@ -180,7 +180,7 @@
     <skinsurface name="cathode_skin_surface" surfaceproperty="cathode_surface" >
 		<volumeref ref="pmt1_cathode_phys"/>
 	    </skinsurface>
-
+    -->
     </structure>
 
 <setup name="Default" version="1.0" >
