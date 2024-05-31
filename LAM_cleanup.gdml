@@ -126,8 +126,8 @@
 
         <physvol name="DetBox_phys" >
             <volumeref ref="DetBox_vol" />
-            <positionref ref="DetBox_pos"/>
-            <rotationref ref="DetBox_rot"/>
+            <position name="DetBox_pos" unit="mm" x="0" y="0" z="0" />
+	        <rotation name="DetBox_rot" unit="deg" x="0" y="0" z="0" />
             </physvol>
 
         <!--
@@ -158,8 +158,8 @@
 
         <physvol name="DetBox2_phys" >
             <volumeref ref="DetBox2_vol" />
-            <positionref ref="DetBox2_pos"/>
-            <rotationref ref="DetBox2_rot"/>
+            <position name="DetBox2_pos" unit="mm" x="0" y="0" z="163.5" />
+	        <rotation name="DetBox2_rot" unit="deg" x="0" y="0" z="0" />
             </physvol>
 
         </volume>
