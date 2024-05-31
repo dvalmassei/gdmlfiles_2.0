@@ -89,8 +89,8 @@
 		<!--Radiator-->
         <physvol name="radiator_quartz_phys">
             <volumeref ref="radiator_quartz_vol" />
-            <positionref ref="radiator_quartz_pos" />
-            <rotationref ref="radiator_quartz_rot" />
+            <position name="radiator_quartz_pos" unit="mm" x="0" y="0" z="0" />
+	        <rotation name="radiator_quartz_rot" unit="deg" x="0" y="180" z="0" />
             </physvol>
 		
 		<!--PMTs-->
