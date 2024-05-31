@@ -122,6 +122,22 @@
             <rotation name="pmt2_cathode_rot" unit="radian" x="0" y="0" z="0" />
             </physvol>
         
+        <!--PMT Surfaces-->
+        <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
+		    <volumeref ref="pmt1_window_phys"/>
+	        </skinsurface>
+  
+        <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
+		    <volumeref ref="pmt2_window_phys"/>
+	        </skinsurface>
+
+        <skinsurface name="cathode_skin_surface" surfaceproperty="cathode_surface" >
+            <volumeref ref="pmt2_cathode_phys"/>
+            </skinsurface>
+
+        <skinsurface name="cathode_skin_surface" surfaceproperty="cathode_surface" >
+            <volumeref ref="pmt1_cathode_phys"/>
+            </skinsurface>
     
     </volume>
 
@@ -138,24 +154,6 @@
 
     </volume>
   
-
-  <!--PMT Surfaces
-    <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
-		<volumeref ref="pmt1_window_phys"/>
-	    </skinsurface>
-  
-    <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
-		<volumeref ref="pmt2_window_phys"/>
-	    </skinsurface>
-
-    <skinsurface name="cathode_skin_surface" surfaceproperty="cathode_surface" >
-		<volumeref ref="pmt2_cathode_phys"/>
-	    </skinsurface>
-
-    <skinsurface name="cathode_skin_surface" surfaceproperty="cathode_surface" >
-		<volumeref ref="pmt1_cathode_phys"/>
-	    </skinsurface>
--->
 
   </structure>
 
