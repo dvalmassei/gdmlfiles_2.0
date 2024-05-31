@@ -69,17 +69,28 @@
 
 
 <structure>
-    <volume name="radiator_quartz_vol" >
+    <volume name="radiator_quartz_logic" >
         <materialref ref="Quartz" />
         <solidref ref="radiator" />
         </volume>
 
-	<volume name="pmt_window_vol" >
+	<volume name="pmt1_window_logic" >
         <materialref ref="Quartz" />
         <solidref ref="solid_pmt_window" />
         </volume>
 
-    <volume name="pmt_cathode_vol" >
+    <volume name="pmt1_cathode_logic" >
+        <materialref ref="Bialkali" />
+        <solidref ref="solid_pmt_cathode" />
+        <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
+        </volume>
+
+    <volume name="pmt2_window_logic" >
+        <materialref ref="Quartz" />
+        <solidref ref="solid_pmt_window" />
+        </volume>
+
+    <volume name="pmt2_cathode_logic" >
         <materialref ref="Bialkali" />
         <solidref ref="solid_pmt_cathode" />
         <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
@@ -91,7 +102,7 @@
 
 
         <physvol name="radiator_quartz_phys">
-            <volumeref ref="radiator_quartz_vol" />
+            <volumeref ref="radiator_quartz_logic" />
             <position name="radiator_quartz_pos" unit="mm" x="0" y="0" z="0" />
             <rotation name="radiator_quartz_rot" unit="deg" x="0" y="180" z="0" />
             </physvol>
@@ -99,25 +110,25 @@
 
         <!--PMTs-->
         <physvol name="pmt1_window_phys">
-            <volumeref ref="pmt_window_vol" />
+            <volumeref ref="pmt1_window_logic" />
             <position name="pmt1_window_pos" unit="mm" x="length/2-chamfer/2" y="height/2 + d6/2 + d4 -10" z="thickness/2 +3.0/2.0 + d3 + 0.5" />
             <rotation name="pmt1_window_rot" unit="radian" x="0" y="0" z="0" />
             </physvol>
 
         <physvol name="pmt1_cathode_phys">
-            <volumeref ref="pmt_cathode_vol" />
+            <volumeref ref="pmt1_cathode_logic" />
             <position name="pmt1_cathode_pos" unit="mm" x="length/2-chamfer/2" y="height/2 + d6/2 + d4 -10" z="thickness/2 +3+3e-06/2.0 + d3 + 0.5" />
             <rotation name="pmt1_cathode_rot" unit="radian" x="0" y="0" z="0" />
             </physvol>
 
         <physvol name="pmt2_window_phys">
-            <volumeref ref="pmt_window_vol" />
+            <volumeref ref="pmt2_window_logic" />
             <position name="pmt2_window_pos" unit="mm" x="-(length/2-chamfer/2)" y="height/2 + d6/2 + d4 -10" z="thickness/2 +3.0/2.0 + d3 + 0.5" />
             <rotation name="pmt2_window_rot" unit="radian" x="0" y="0" z="0" />
             </physvol>
 
         <physvol name="pmt2_cathode_phys">
-            <volumeref ref="pmt_cathode_vol" />
+            <volumeref ref="pmt2_cathode_logic" />
             <position name="pmt2_cathode_pos" unit="mm" x="-(length/2-chamfer/2)" y="height/2 + d6/2 + d4 -10" z="thickness/2 +3+3e-06/2.0 + d3 + 0.5" />
             <rotation name="pmt2_cathode_rot" unit="radian" x="0" y="0" z="0" />
             </physvol>
@@ -140,19 +151,19 @@
   
  <!--PMT Surfaces-->
     <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
-        <volumeref ref="pmt1_window_phys"/>
+        <volumeref ref="pmt1_window_logic"/>
         </skinsurface>
 
     <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
-        <volumeref ref="pmt2_window_phys"/>
+        <volumeref ref="pmt2_window_logic"/>
         </skinsurface>
 
     <skinsurface name="cathode_skin_surface" surfaceproperty="cathode_surface" >
-        <volumeref ref="pmt2_cathode_phys"/>
+        <volumeref ref="pmt2_cathode_logic"/>
         </skinsurface>
 
     <skinsurface name="cathode_skin_surface" surfaceproperty="cathode_surface" >
-        <volumeref ref="pmt1_cathode_phys"/>
+        <volumeref ref="pmt1_cathode_logic"/>
         </skinsurface>
   </structure>
 
