@@ -29,7 +29,7 @@
 
 <solids>
     <box lunit="mm" name="WorldBox" x="7000" y="7000" z="7000"/>
-    <box lunit="mm" name="DetBox_1" x="500" y="500" z="200"/>
+    <box lunit="mm" name="DetBox" x="500" y="500" z="200"/>
 
     <box lunit="mm" name="radiator_quartz" x="length" y="height" z="thickness"/>
 
@@ -70,8 +70,8 @@
 
     <physvol name="radiator_quartz_phys">
         <volumeref ref="radiator_quartz_vol" />
-        <positionref ref="radiator_quartz_pos" />
-        <rotationref ref="radiator_quartz_rot" />
+        <position name="radiator_quartz_pos" unit="mm" x="0" y="0" z="0" />
+	    <rotation name="radiator_quartz_rot" unit="deg" x="0" y="180" z="0" />
         </physvol>
         </volume>
 
@@ -82,8 +82,8 @@
 
         <physvol name="DetBox_phys" >
             <volumeref ref="DetBox_vol" />
-            <positionref ref="DetBox_pos"/>
-            <rotationref ref="DetBox_rot"/>
+            <position name="DetBox_pos" unit="mm" x="0" y="0" z="0" />
+	        <rotation name="DetBox_rot" unit="deg" x="0" y="0" z="0" />
             </physvol>
 
     </volume>
