@@ -69,6 +69,7 @@
 
 
 <structure>
+    <!--LOGIC VOLUMES-->
     <volume name="radiator_quartz_logic" >
         <materialref ref="Quartz" />
         <solidref ref="radiator" />
@@ -96,11 +97,13 @@
         <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
         </volume>
 
-    <volume name="DetBox_vol" >
+
+
+    <volume name="DetBox_logic" >
         <materialref ref="vacuum" />
         <solidref ref="DetBox" />
 
-
+    <!--PHYSICAL VOLUMES-->
         <physvol name="radiator_quartz_phys">
             <volumeref ref="radiator_quartz_logic" />
             <position name="radiator_quartz_pos" unit="mm" x="0" y="0" z="0" />
@@ -142,7 +145,7 @@
 
 
         <physvol name="DetBox_phys" >
-            <volumeref ref="DetBox_vol" />
+            <volumeref ref="DetBox_logic" />
             <position name="DetBox_pos" unit="mm" x="0" y="0" z="0" />
 	        <rotation name="DetBox_rot" unit="deg" x="0" y="0" z="0" />
             </physvol>
