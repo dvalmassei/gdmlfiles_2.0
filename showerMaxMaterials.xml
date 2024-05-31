@@ -68,4 +68,10 @@
 	<composite n="2" ref="Nitrogen" />
 	<composite n="2" ref="Oxygen" />
 </material>
+<material formula="K2CsSb" name="Bialkali" >
+	<D value="3.46" />
+	<composite n="2" ref="Potassium" />
+	<composite n="1" ref="Caesium" />
+	<composite n="1" ref="Antimony" />
+</material>
 </materials>
