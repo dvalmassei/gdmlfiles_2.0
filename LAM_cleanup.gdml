@@ -67,7 +67,7 @@
         <materialref ref="Quartz" />
         <solidref ref="radiator" />
         </volume>
-<!---
+
 	<volume name="pmt_window_vol" >
         <materialref ref="Quartz" />
         <solidref ref="solid_pmt_window" />
@@ -78,7 +78,7 @@
         <solidref ref="solid_pmt_cathode" />
         <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
         </volume>
--->
+
 	<!--End LOGIC VOLUMES-->
 
 	<!--Begin PHYSICAL VOLUMES-->
@@ -94,7 +94,7 @@
             </physvol>
 		
 		<!--PMTs-->
-<!--
+
         <physvol name="pmt1_window_phys">
             <volumeref ref="pmt_window_vol" />
             <position name="pmt1_window_pos" unit="mm" x="length/2-chamfer/2" y="height/2 + d6/2 + d4 -10" z="thickness/2 +3.0/2.0 + d3 + 0.5" />
@@ -106,7 +106,7 @@
             <position name="pmt2_window_pos" unit="mm" x="-(length/2-chamfer/2)" y="height/2 + d6/2 + d4 -10" z="thickness/2 +3.0/2.0 + d3 + 0.5" />
             <rotation name="pmt2_window_rot" unit="radian" x="0" y="0" z="0" />
             </physvol>
-
+<!--
 		<physvol name="pmt2_window_phys">
             <volumeref ref="pmt_window_vol" />
             <position name="pmt1_cathode_pos" unit="mm" x="length/2-chamfer/2" y="height/2 + d6/2 + d4 -10" z="thickness/2 +3+3e-06/2.0 + d3 + 0.5" />
