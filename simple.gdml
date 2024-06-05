@@ -61,8 +61,14 @@
     <box lunit="mm" name="backPlate_solid" x="length" y="height - 10" z="0.5"/>
     <box lunit="mm" name="topPlate_solid" x="thickness" y="length - (2*chamfer) - 1" z="0.5"/>
     <box lunit="mm" name="botPlate_solid" x="thickness" y="length" z="0.5"/>
-    <box lunit="mm" name="leftPlate_solid" x="thickness" y="height" z="0.5"/>
-    <box lunit="mm" name="rightPlate_solid" x="thickness" y="height" z="0.5"/>
+    <box lunit="mm" name="sidePlate_solid" x="thickness" y="height -10" z="0.5"/>
+    <box lunit="mm" name="bunnyEar_solid" x="chamfer" y="48.8" z="0.5"/>
+    <box lunit="mm" name="bunnyEarOutsidePlate_solid" x="thickness" y="48.4 + 10" z="0.5"/>
+    <box lunit="mm" name="bunnyEarInsidePlate_solid" x="thickness" y="48.4" z="0.5"/>
+    <box lunit="mm" name="bunnyEarTopPlate_solid" x="thickness" y="chamfer" z="0.5"/>
+
+
+
 
 
     <!--Optical Properties-->
@@ -123,12 +129,12 @@
 
     <volume name="enclosure_rightPlate_logic">
         <materialref ref="Nylon"/>
-        <solidref ref="rightPlate_solid"/>
+        <solidref ref="sidePlate_solid"/>
         </volume>
 
     <volume name="enclosure_leftPlate_logic">
         <materialref ref="Nylon"/>
-        <solidref ref="leftPlate_solid"/>
+        <solidref ref="sidePlate_solid"/>
         </volume>
 
     <volume name="enclosure_botPlate_logic">
@@ -139,6 +145,26 @@
     <volume name="enclosure_topPlate_logic">
         <materialref ref="Nylon"/>
         <solidref ref="topPlate_solid"/>
+        </volume>
+
+    <volume name="bunnyEar_logic">
+        <materialref ref="Nylon"/>
+        <solidref ref="bunnyEar_solid"/>
+        </volume>
+
+    <volume name="bunnyEarOutsidePlate_logic">
+        <materialref ref="Nylon"/>
+        <solidref ref="bunnyEarOutsidePlate_solid"/>
+        </volume>
+    
+    <volume name="bunnyEarInsidePlate_logic">
+        <materialref ref="Nylon"/>
+        <solidref ref="bunnyEarInsidePlate_solid"/>
+        </volume>
+
+    <volume name="bunnyEarTopPlate_logic">
+        <materialref ref="Nylon"/>
+        <solidref ref="bunnyEarTopPlate_solid"/>
         </volume>
 
 
@@ -207,14 +233,20 @@
 
         <physvol name="enclosure_leftPlate_phys">
             <volumeref ref="enclosure_leftPlate_logic" />
-            <position name="leftPlate_pos" unit="mm" x="-(length/2 + 0.7/2)" y="0" z="0" />
+            <position name="leftPlate_pos" unit="mm" x="-(length/2 + 0.7/2)" y="-5" z="0" />
             <rotation name="leftPlate_rot" unit="deg" x="0" y="90" z="0" />
             </physvol>
 
         <physvol name="enclosure_rightPlate_phys">
             <volumeref ref="enclosure_rightPlate_logic" />
-            <position name="rightPlate_pos" unit="mm" x="length/2 + 0.7/2" y="0" z="0" />
+            <position name="rightPlate_pos" unit="mm" x="length/2 + 0.7/2" y="-5" z="0" />
             <rotation name="rightPlate_rot" unit="deg" x="0" y="90" z="0" />
+            </physvol>
+
+        <physvol name="right_bunnyEar_phys">
+            <volumeref ref="bunnyEar_logic" />
+            <position name="right_bunnyEar_pos" unit="mm" x="length/2 + chamfer/2" y="height/2 + 48.8/2" z="0" />
+            <rotation name="right_bunnyEar_rot" unit="deg" x="0" y="0" z="0" />
             </physvol>
             
             </volume>
