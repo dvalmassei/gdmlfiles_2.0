@@ -207,13 +207,13 @@
 
         <physvol name="enclosure_leftPlate_phys">
             <volumeref ref="enclosure_leftPlate_logic" />
-            <position name="leftPlate_pos" unit="mm" x="-(length/2 + 0.7/2)" y="-5" z="0" />
+            <position name="leftPlate_pos" unit="mm" x="-(length/2 + 0.7/2)" y="0" z="0" />
             <rotation name="leftPlate_rot" unit="deg" x="0" y="90" z="0" />
             </physvol>
 
         <physvol name="enclosure_rightPlate_phys">
             <volumeref ref="enclosure_rightPlate_logic" />
-            <position name="rightPlate_pos" unit="mm" x="length/2 + 0.7/2" y="-5" z="0" />
+            <position name="rightPlate_pos" unit="mm" x="length/2 + 0.7/2" y="0" z="0" />
             <rotation name="rightPlate_rot" unit="deg" x="0" y="90" z="0" />
             </physvol>
             
