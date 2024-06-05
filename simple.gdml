@@ -281,11 +281,11 @@
             
 
         <physvol name="right_bunnyEarTopPlate_phys">
-            <volumeref ref="right_bunnyEarTopPlate_logic" />
+            <volumeref ref="bunnyEarTopPlate_logic" />
             <position name="right_bunnyEarTopPlate_pos" unit="mm" x="0" y="height/2 + 48.8 + 0.7/2" z="0" />
             <rotation name="right_bunnyEarTopPlate_rot" unit="deg" x="90" y="0" z="90" />
             </physvol>
-            
+
             </volume>
 
 
