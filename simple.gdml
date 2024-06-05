@@ -245,7 +245,7 @@
 
         <physvol name="right_bunnyEar_phys">
             <volumeref ref="bunnyEar_logic" />
-            <position name="right_bunnyEar_pos" unit="mm" x="length/2 + chamfer/2" y="height/2 + 48.8/2" z="0" />
+            <position name="right_bunnyEar_pos" unit="mm" x="length/2" y="height/2 + 48.8/2" z="0" />
             <rotation name="right_bunnyEar_rot" unit="deg" x="0" y="0" z="0" />
             </physvol>
             
