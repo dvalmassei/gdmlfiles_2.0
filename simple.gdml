@@ -56,6 +56,14 @@
     <tube name="solid_pmt_window" rmin="0" rmax="38.1" z="3.0" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
     <tube name="solid_pmt_cathode" rmin="0" rmax="38.1" z="3e-06" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
 
+                <!--Plastic Enclosure solids-->
+    <box lunit="mm" name="frontPlate_solid" x="length" y="height" z="0.5"/>
+    <box lunit="mm" name="backPlate_solid" x="length" y="120" z="0.5"/>
+    <box lunit="mm" name="topPlate_solid" x="thickness" y="length - (2*chamfer) - 1" z="0.5"/>
+    <box lunit="mm" name="botPlate_solid" x="thickness" y="length" z="0.5"/>
+    <box lunit="mm" name="leftPlate_solid" x="thickness" y="120" z="0.5"/>
+    <box lunit="mm" name="rightPlate_solid" x="thickness" y="120" z="0.5"/>
+
 
     <!--Optical Properties-->
     <opticalsurface name="quartz_surface" model="glisur" finish="ground" type="dielectric_dielectric" value="0.98" >
@@ -96,7 +104,42 @@
         <solidref ref="solid_pmt_cathode" />
         <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
         </volume>
+    
+                    <!--Plastic Enclosure-->
+    <volume name="enclosure_backPlate_logic">
+        <materialref ref="Nylon"/>
+        <solidref ref="backPlate_solid"/>
+        </volume>
 
+    <volume name="enclosure_frontPlate_logic">
+        <materialref ref="Nylon"/>
+        <solidref ref="frontPlate_solid"/>
+        </volume>
+
+    <volume name="enclosure_topPlate_logic">
+        <materialref ref="Nylon"/>
+        <solidref ref="topPlate_solid"/>
+        </volume>
+
+    <volume name="enclosure_rightPlate_logic">
+        <materialref ref="Nylon"/>
+        <solidref ref="rightPlate_solid"/>
+        </volume>
+
+    <volume name="enclosure_leftPlate_logic">
+        <materialref ref="Nylon"/>
+        <solidref ref="leftPlate_solid"/>
+        </volume>
+
+    <volume name="enclosure_botPlate_logic">
+        <materialref ref="Nylon"/>
+        <solidref ref="botPlate_solid"/>
+        </volume>
+
+    <volume name="enclosure_topPlate_logic">
+        <materialref ref="Nylon"/>
+        <solidref ref="topPlate_solid"/>
+        </volume>
 
 
     <volume name="DetBox_logic" >
@@ -109,9 +152,9 @@
             <position name="radiator_quartz_pos" unit="mm" x="0" y="0" z="0" />
             <rotation name="radiator_quartz_rot" unit="deg" x="0" y="180" z="0" />
             </physvol>
-            
 
-        <!--PMTs-->
+                        <!--PMTs-->
+
         <physvol name="pmt1_window_phys">
             <volumeref ref="pmt1_window_logic" />
             <position name="pmt1_window_pos" unit="mm" x="length/2-chamfer/2" y="height/2 + d6/2 + d4 -10" z="thickness/2 +3.0/2.0 + d3 + 0.5" />
@@ -136,8 +179,45 @@
             <rotation name="pmt2_cathode_rot" unit="radian" x="0" y="0" z="0" />
             </physvol>
 
-    
-    </volume>
+                    <!--Plastic Enclosure-->
+
+        <physvol name="enclosure_backPlate_phys">
+            <volumeref ref="enclosure_backPlate_logic" />
+            <position name="backPlate_pos" unit="mm" x="0" y="-5 - 0.5" z="thickness/2 + 0.7/2" />
+            <rotation name="backPlate_rot" unit="radian" x="0" y="0" z="0" />
+            </physvol>
+
+        <physvol name="enclosure_frontPlate_phys">
+            <volumeref ref="enclosure_frontPlate_logic" />
+            <position name="frontPlate_pos" unit="mm" x="0" y="0" z="-(thickness/2 + 0.7/2)" />
+            <rotation name="frontPlate_rot" unit="radian" x="0" y="0" z="0" />
+            </physvol>
+
+        <physvol name="enclosure_botPlate_phys">
+            <volumeref ref="enclosure_botPlate_logic" />
+            <position name="botPlate_pos" unit="mm" x="0" y="-(height/2 + 0.7/2)" z="0" />
+            <rotation name="botPlate_rot" unit="deg" x="90" y="0" z="90" />
+            </physvol>
+
+        <physvol name="enclosure_topPlate_phys">
+            <volumeref ref="enclosure_topPlate_logic" />
+            <position name="topPlate_pos" unit="mm" x="0" y="height/2 + 0.7/2" z="0" />
+            <rotation name="topPlate_rot" unit="deg" x="90" y="0" z="90" />
+            </physvol>
+
+        <physvol name="enclosure_leftPlate_phys">
+            <volumeref ref="enclosure_leftPlate_logic" />
+            <position name="leftPlate_pos" unit="mm" x="-(length/2 + 0.7/2)" y="-5" z="0" />
+            <rotation name="leftPlate_rot" unit="deg" x="0" y="90" z="0" />
+            </physvol>
+
+        <physvol name="enclosure_rightPlate_phys">
+            <volumeref ref="enclosure_rightPlate_logic" />
+            <position name="rightPlate_pos" unit="mm" x="length/2 + 0.7/2" y="-5" z="0" />
+            <rotation name="rightPlate_rot" unit="deg" x="0" y="90" z="0" />
+            </physvol>
+            
+            </volume>
 
     <volume name="World" >
         <materialref ref="vacuum" />
@@ -152,7 +232,7 @@
 
     </volume>
   
- <!--PMT Surfaces-->
+    <!--PMT Surfaces-->
     <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
         <volumeref ref="pmt1_window_logic"/>
         </skinsurface>
@@ -162,11 +242,11 @@
         </skinsurface>
 
     <skinsurface name="cathode_skin_surface" surfaceproperty="cathode_surface" >
-        <volumeref ref="pmt2_cathode_logic"/>
+        <volumeref ref="pmt1_cathode_logic"/>
         </skinsurface>
 
     <skinsurface name="cathode_skin_surface" surfaceproperty="cathode_surface" >
-        <volumeref ref="pmt1_cathode_logic"/>
+        <volumeref ref="pmt2_cathode_logic"/>
         </skinsurface>
   </structure>
 
