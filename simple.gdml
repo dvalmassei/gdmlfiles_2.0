@@ -59,7 +59,7 @@
                 <!--Plastic Enclosure solids-->
     <box lunit="mm" name="frontPlate_solid" x="length" y="height" z="0.5"/>
     <box lunit="mm" name="backPlate_solid" x="length" y="height - 10" z="0.5"/>
-    <box lunit="mm" name="topPlate_solid" x="thickness" y="length - (2*chamfer) - 1" z="0.5"/>
+    <box lunit="mm" name="topPlate_solid" x="thickness" y="length - (2*chamfer) - 1.4" z="0.5"/>
     <box lunit="mm" name="botPlate_solid" x="thickness" y="length" z="0.5"/>
     <box lunit="mm" name="sidePlate_solid" x="thickness" y="height -10" z="0.5"/>
     <box lunit="mm" name="bunnyEar_solid" x="chamfer" y="48.8" z="0.5"/>
@@ -269,7 +269,7 @@
         
         <physvol name="right_bunnyEarinsidePlate_phys">
             <volumeref ref="bunnyEarInsidePlate_logic" />
-            <position name="right_bunnyEarInsidePlate_pos" unit="mm" x="length/2 - chamfer - 0.7/2" y="height/2 + 48.8/2 + 0.7/2" z="" />
+            <position name="right_bunnyEarInsidePlate_pos" unit="mm" x="length/2 - chamfer - 0.7/2" y="height/2 + 48.8/2" z="" />
             <rotation name="right_bunnyEarInsidePlate_rot" unit="deg" x="0" y="90" z="0" />
             </physvol>
             
