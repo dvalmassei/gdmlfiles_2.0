@@ -224,8 +224,8 @@
 5.88009478672986*eV 1.00031690235342
 7.75389038185113*eV 1.00038322193682"/>
 <matrix name="Air_ABSLENGTH" coldim="2" values="
-1.55*eV 1000*m
-6.20*eV 1000*m"/>
+1.55*eV 25*m
+6.20*eV 25*m"/>
 <matrix name="MiroSilver_REFLECTIVITY_30DEG" coldim="2" values="
 1.55*eV 0.63107848
 1.58*eV 0.61020820
