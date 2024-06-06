@@ -165,7 +165,7 @@
 
 
     <volume name="DetBox_logic" >
-        <materialref ref="vacuum" />
+        <materialref ref="Air" />
         <solidref ref="DetBox" />
 
     <!--PHYSICAL VOLUMES-->
