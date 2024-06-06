@@ -35,6 +35,7 @@
 
 <material formula="noFormula" name="Air" >
 	<property name="RINDEX" ref="Air_RINDEX"/>
+	<property name="ABSLENGTH" ref="Air_ABSLENGTH"/>
 	<D value="0.00129" />
 	<fraction n="0.3" ref="Oxygen" />
 	<fraction n="0.7" ref="Nitrogen" />
