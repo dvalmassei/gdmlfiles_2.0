@@ -70,7 +70,7 @@
 
 
     <!--Optical Properties-->
-    <opticalsurface name="quartz_surface" model="glisur" finish="ground" type="dielectric_dielectric" value="0.91" >
+    <opticalsurface name="quartz_surface" model="glisur" finish="ground" type="dielectric_dielectric" value="0.97" >
     </opticalsurface>
 
     <opticalsurface name="cathode_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
