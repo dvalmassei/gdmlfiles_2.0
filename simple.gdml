@@ -62,7 +62,7 @@
     <box lunit="mm" name="bunnyEarOutsidePlate_solid" x="thickness + d3" y="48.4 + 10" z="0.5"/>
     <box lunit="mm" name="bunnyEarInsidePlate_solid" x="thickness + d3" y="48.4" z="0.5"/>
     <box lunit="mm" name="bunnyEarTopPlate_solid" x="thickness + d3" y="chamfer" z="0.5"/>
-    <box lunit="mm" name="bunnyEarBottomPlate_solid" x="thickness" y="chamfer" z="0.5"/>
+    <box lunit="mm" name="bunnyEarBottomPlate_solid" x="d3" y="chamfer" z="0.5"/>
 
 
 
@@ -260,49 +260,49 @@
 
         <physvol name="right_bunnyEarOutsidePlate_phys">
             <volumeref ref="bunnyEarOutsidePlate_logic" />
-            <position name="right_bunnyEarOutsidePlate_pos" unit="mm" x="length/2 + 0.7/2" y="height/2 + 48.8/2 -5" z="d3 + thickness/2" />
+            <position name="right_bunnyEarOutsidePlate_pos" unit="mm" x="length/2 + 0.7/2" y="height/2 + 48.8/2 -5" z="d3 - 3*thickness/2" />
             <rotation name="right_bunnyEarOutsidePlate_rot" unit="deg" x="0" y="90" z="0" />
             </physvol>
 
         <physvol name="left_bunnyEarOutsidePlate_phys">
             <volumeref ref="bunnyEarOutsidePlate_logic" />
-            <position name="left_bunnyEarOutsidePlate_pos" unit="mm" x="-(length/2 + 0.7/2)" y="height/2 + 48.8/2 -5" z="d3 + thickness/2" />
+            <position name="left_bunnyEarOutsidePlate_pos" unit="mm" x="-(length/2 + 0.7/2)" y="height/2 + 48.8/2 -5" z="d3 - 3*thickness/2" />
             <rotation name="left_bunnyEarOutsidePlate_rot" unit="deg" x="0" y="90" z="0" />
             </physvol>
         
         <physvol name="right_bunnyEarinsidePlate_phys">
             <volumeref ref="bunnyEarInsidePlate_logic" />
-            <position name="right_bunnyEarInsidePlate_pos" unit="mm" x="length/2 - chamfer" y="height/2 + 48.8/2" z="d3 + thickness/2" />
+            <position name="right_bunnyEarInsidePlate_pos" unit="mm" x="length/2 - chamfer" y="height/2 + 48.8/2" z="d3 - 3*thickness/2" />
             <rotation name="right_bunnyEarInsidePlate_rot" unit="deg" x="0" y="90" z="0" />
             </physvol>
 
         <physvol name="left_bunnyEarinsidePlate_phys">
             <volumeref ref="bunnyEarInsidePlate_logic" />
-            <position name="left_bunnyEarInsidePlate_pos" unit="mm" x="-(length/2 - chamfer)" y="height/2 + 48.8/2" z="d3 + thickness/2" />
+            <position name="left_bunnyEarInsidePlate_pos" unit="mm" x="-(length/2 - chamfer)" y="height/2 + 48.8/2" z="d3 - 3*thickness/2" />
             <rotation name="left_bunnyEarInsidePlate_rot" unit="deg" x="0" y="90" z="0" />
             </physvol>
             
         <physvol name="right_bunnyEarTopPlate_phys">
             <volumeref ref="bunnyEarTopPlate_logic" />
-            <position name="right_bunnyEarTopPlate_pos" unit="mm" x="length/2 - chamfer/2" y="height/2 + 48.8 + 0.7/2" z="d3 + thickness/2" />
+            <position name="right_bunnyEarTopPlate_pos" unit="mm" x="length/2 - chamfer/2" y="height/2 + 48.8 + 0.7/2" z="d3 - 3*thickness/2" />
             <rotation name="right_bunnyEarTopPlate_rot" unit="deg" x="90" y="0" z="90" />
             </physvol>
 
         <physvol name="left_bunnyEarTopPlate_phys">
             <volumeref ref="bunnyEarTopPlate_logic" />
-            <position name="left_bunnyEarTopPlate_pos" unit="mm" x="-(length/2 - chamfer/2)" y="height/2 + 48.8 + 0.7/2" z="d3 + thickness/2" />
+            <position name="left_bunnyEarTopPlate_pos" unit="mm" x="-(length/2 - chamfer/2)" y="height/2 + 48.8 + 0.7/2" z="d3 - 3*thickness/2" />
             <rotation name="left_bunnyEarTopPlate_rot" unit="deg" x="90" y="0" z="90" />
             </physvol>
 
         <physvol name="right_bunnyEarBottomPlate_phys">
             <volumeref ref="bunnyEarBottomPlate_logic" />
-            <position name="right_bunnyEarBottomPlate_pos" unit="mm" x="length/2 - chamfer/2" y="height/2 + 0.7/2" z="d3 + thickness/2" />
+            <position name="right_bunnyEarBottomPlate_pos" unit="mm" x="length/2 - chamfer/2" y="height/2 + 0.7/2" z="d3 - thickness/2" />
             <rotation name="right_bunnyEarBottomPlate_rot" unit="deg" x="90" y="0" z="90" />
             </physvol>
         
         <physvol name="left_bunnyEarBottomPlate_phys">
             <volumeref ref="bunnyEarBottomPlate_logic" />
-            <position name="left_bunnyEarBottomPlate_pos" unit="mm" x="-(length/2 - chamfer/2)" y="height/2 + 0.7/2" z="d3 + thickness/2" />
+            <position name="left_bunnyEarBottomPlate_pos" unit="mm" x="-(length/2 - chamfer/2)" y="height/2 + 0.7/2" z="d3 - thickness/2" />
             <rotation name="left_bunnyEarBottomPlate_rot" unit="deg" x="90" y="0" z="90" />
             </physvol>
 
