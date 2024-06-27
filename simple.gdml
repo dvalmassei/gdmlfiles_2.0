@@ -7,12 +7,14 @@
 
 <gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
 
+
+<!--This is the finalized LAM gdml-->
 <define>
     <!-- Radiator and Light Guide Parameters-->
     <constant name="thickness" value="10" />
     <constant name="offset" value="60" />
 
-    <constant name="d3" value="40" />  <!--Z distance from PMT to Quartz-->
+    <constant name="d3" value="30" />  <!--Z distance from PMT to Quartz-->
     <constant name="chamfer" value="70" />
     <constant name="length" value="250" />
     <constant name="height" value="165" />
