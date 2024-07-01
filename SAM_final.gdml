@@ -245,11 +245,11 @@
         </skinsurface>
 
     <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
-        <volumeref ref="pmt1_window_logic"/>
+        <volumeref ref="pmt_window_vol"/>
         </skinsurface>
 
     <skinsurface name="cathode_skin_surface" surfaceproperty="r375_surface" >
-        <volumeref ref="pmt1_cathode_logic"/>
+        <volumeref ref="pmt_cathode_vol"/>
         </skinsurface>
 
     </structure>
