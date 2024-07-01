@@ -4,11 +4,11 @@
     <!ENTITY matrices SYSTEM "showerMaxMatrices.xml">
 	<!ENTITY materials SYSTEM "showerMaxMaterials.xml">
     ]>
+<gdml xmlns:xsi="http://www.w3.org/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd" >
 
 <!--This is the verison I've used most recently-->
 <!--All dimensions, except quartz, are defined by constants d1-6. Simply edit these-->
 <!--To edit rotation, change the z-coord of DetBox_rot (negative mimic beam angles)-->
-<gdml xmlns:xsi="http://www.w3.org/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd" >
 <define>
    <constant name="d1" value="257.28" />
    <constant name="d2" value="211" />
@@ -67,7 +67,7 @@
         </opticalsurface>
    <!--Aluminum-->
    <opticalsurface name="aluminium_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
-        <property name="REFLECTIVITY" ref="Aluminum_REFLECTIVITY" />
+        <property name="REFLECTIVITY" ref="MiroIV_REFLECTIVITY_90DEG" />
         </opticalsurface>
 
    <!--Cathode-->
@@ -133,95 +133,6 @@
         <auxiliary auxtype="Color" auxvalue="blue"/>
         </volume>
 
-
-    <!--Detector Assembly-->
-    <volume name="DetBox_vol" >
-      <materialref ref="Air" />
-      <solidref ref="DetBox" />
-
-      <physvol name="quartz_phys">
-        <volumeref ref="quartz_vol" />
-        <position name="quartz_pos" unit="mm" x="0.5/2" y="0.5/2" z="0" />
-        <rotation name="quartz_rot" unit="deg" x="0" y="0" z="0" />
-        </physvol>
-
-
-      <!--Light Guide Assembly-->
-      <physvol name="botPlate_phys">
-        <volumeref ref="botPlate_vol" />
-        <position name="botPlate_pos" unit="mm" x="d1/2" y="-0.5/2" z="0"/>
-        <rotation name="botPlate_rot" unit="deg" x="90" y="0" z="0" />
-        </physvol>
-
-      <physvol name="topPlate_1_phys">
-        <volumeref ref="topPlate_1_vol" />
-        <position name="topPlate_1_pos" unit="mm" x="(d1-(d2+d4))+d4+(d2/2)" y="d6 + (0.5/2)" z="0"/>
-        <rotation name="topPlate_1_rot" unit="deg" x="90" y="0" z="0" />
-        </physvol>
-
-      <physvol name="topPlate_2_phys">
-        <volumeref ref="topPlate_2_vol" />
-        <position name="topPlate_2_pos" unit="mm" x="d4/2"  y="d5 + (0.5/2)" z="0"/>
-        <rotation name="topPlate_2_rot" unit="deg" x="90" y="0" z="0" />
-        </physvol>
-
-      <physvol name="rightPlate_bool_2_phys">
-        <volumeref ref="rightPlate_bool_vol" />
-        <position name="rightPlate_tot_pos" unit="mm" x="d1/2" y="d6/2" z="-(20/2 + 0.5/2)"/>
-        <rotation name="rightPlate_tot_rot" unit="deg" x="0" y="180" z="0" />
-        </physvol>
-
-      <physvol name="leftPlate_bool_2_phys">
-        <volumeref ref="rightPlate_bool_vol" />
-        <position name="leftPlate_tot_pos" unit="mm" x="d1/2" y="d6/2" z="20/2 + 0.5/2 "/>
-        <rotation name="leftPlate_tot_rot" unit="deg" x="0" y="180" z="0" />
-        </physvol>
-
-      <physvol name="frontPlate_1_phys">
-        <volumeref ref="frontPlate_1_vol" />
-        <position name="frontPlate_1_pos" unit="mm" x="-0.5/2" y="d5/2" z="0"/>
-        <rotation name="frontPlate_1_rot" unit="deg" x="90" y="90" z="0" />
-        </physvol>
-
-      <physvol name="frontPlate_2_phys">
-        <volumeref ref="frontPlate_2_vol" />
-        <position name="frontPlate_2_pos" unit="mm" x="d4"  y="d5" z="0"/>
-        <rotation name="frontPlate_2_rot" unit="deg" x="0" y="0" z="0" />
-        </physvol>
-
-
-      <physvol name="pmt1_window_phys">
-        <volumeref ref="pmt_window_vol" />
-        <position name="pmt1_window_pos" unit="mm" x="d1 +3.0/2" y="20/2" z="0" />
-        <rotation name="pmt1_window_rot" unit="deg" x="0" y="90" z="0" />
-        </physvol>
-      <physvol name="pmt1_cathode_phys">
-        <volumeref ref="pmt_cathode_vol" />
-        <position name="pmt1_cathode_pos" unit="mm" x="d1 +3 +3e-06/2.0" y="20/2" z="0" />
-        <rotation name="pmt1_cathode_rot" unit="deg" x="0" y="90" z="0" />
-        </physvol>
-
-
-        </volume>
-
-
-
-
-    <!--World Assembly-->
-    <volume name="World" >
-      <materialref ref="Air" />
-      <solidref ref="WorldBox" />
-
-      <physvol name="DetBox_phys" >
-        <volumeref ref="DetBox_vol" />
-        <position name="DetBox_pos" unit="mm" x="-5" y="0" z="0" />
-        <!-- <position name="DetBox_pos" unit="mm" x="43.0" y="0" z="0" /> --> <!-- for use with skimtree-->
-        <rotation name="DetBox_rot" unit="deg" x="90" y="0" z="0" />
-        </physvol>
-
-        </volume>
-
-
     <skinsurface name="skinsrf1" surfaceproperty="quartz_surface" >
         <volumeref ref="quartz_vol"/>
         </skinsurface>
@@ -251,6 +162,94 @@
     <skinsurface name="cathode_skin_surface" surfaceproperty="r375_surface" >
         <volumeref ref="pmt_cathode_vol"/>
         </skinsurface>
+
+
+    <!--Detector Assembly-->
+    <volume name="DetBox_vol" >
+        <materialref ref="Air" />
+        <solidref ref="DetBox" />
+
+        <physvol name="quartz_phys">
+            <volumeref ref="quartz_vol" />
+            <position name="quartz_pos" unit="mm" x="0.5/2" y="0.5/2" z="0" />
+            <rotation name="quartz_rot" unit="deg" x="0" y="0" z="0" />
+            </physvol>
+
+
+        <!--Light Guide Assembly-->
+        <physvol name="botPlate_phys">
+            <volumeref ref="botPlate_vol" />
+            <position name="botPlate_pos" unit="mm" x="d1/2" y="-0.5/2" z="0"/>
+            <rotation name="botPlate_rot" unit="deg" x="90" y="0" z="0" />
+            </physvol>
+
+        <physvol name="topPlate_1_phys">
+            <volumeref ref="topPlate_1_vol" />
+            <position name="topPlate_1_pos" unit="mm" x="(d1-(d2+d4))+d4+(d2/2)" y="d6 + (0.5/2)" z="0"/>
+            <rotation name="topPlate_1_rot" unit="deg" x="90" y="0" z="0" />
+            </physvol>
+
+        <physvol name="topPlate_2_phys">
+            <volumeref ref="topPlate_2_vol" />
+            <position name="topPlate_2_pos" unit="mm" x="d4/2"  y="d5 + (0.5/2)" z="0"/>
+            <rotation name="topPlate_2_rot" unit="deg" x="90" y="0" z="0" />
+            </physvol>
+
+        <physvol name="rightPlate_bool_2_phys">
+            <volumeref ref="rightPlate_bool_vol" />
+            <position name="rightPlate_tot_pos" unit="mm" x="d1/2" y="d6/2" z="-(20/2 + 0.5/2)"/>
+            <rotation name="rightPlate_tot_rot" unit="deg" x="0" y="180" z="0" />
+            </physvol>
+
+        <physvol name="leftPlate_bool_2_phys">
+            <volumeref ref="rightPlate_bool_vol" />
+            <position name="leftPlate_tot_pos" unit="mm" x="d1/2" y="d6/2" z="20/2 + 0.5/2 "/>
+            <rotation name="leftPlate_tot_rot" unit="deg" x="0" y="180" z="0" />
+            </physvol>
+
+        <physvol name="frontPlate_1_phys">
+            <volumeref ref="frontPlate_1_vol" />
+            <position name="frontPlate_1_pos" unit="mm" x="-0.5/2" y="d5/2" z="0"/>
+            <rotation name="frontPlate_1_rot" unit="deg" x="90" y="90" z="0" />
+            </physvol>
+
+        <physvol name="frontPlate_2_phys">
+            <volumeref ref="frontPlate_2_vol" />
+            <position name="frontPlate_2_pos" unit="mm" x="d4"  y="d5" z="0"/>
+            <rotation name="frontPlate_2_rot" unit="deg" x="0" y="0" z="0" />
+            </physvol>
+
+
+        <physvol name="pmt1_window_phys">
+            <volumeref ref="pmt_window_vol" />
+            <position name="pmt1_window_pos" unit="mm" x="d1 +3.0/2" y="20/2" z="0" />
+            <rotation name="pmt1_window_rot" unit="deg" x="0" y="90" z="0" />
+            </physvol>
+        <physvol name="pmt1_cathode_phys">
+            <volumeref ref="pmt_cathode_vol" />
+            <position name="pmt1_cathode_pos" unit="mm" x="d1 +3 +3e-06/2.0" y="20/2" z="0" />
+            <rotation name="pmt1_cathode_rot" unit="deg" x="0" y="90" z="0" />
+            </physvol>
+
+
+            </volume>
+
+
+
+
+    <!--World Assembly-->
+    <volume name="World" >
+      <materialref ref="Air" />
+      <solidref ref="WorldBox" />
+
+      <physvol name="DetBox_phys" >
+        <volumeref ref="DetBox_vol" />
+        <position name="DetBox_pos" unit="mm" x="-5" y="0" z="0" />
+        <!-- <position name="DetBox_pos" unit="mm" x="43.0" y="0" z="0" /> --> <!-- for use with skimtree-->
+        <rotation name="DetBox_rot" unit="deg" x="90" y="0" z="0" />
+        </physvol>
+
+        </volume>
 
     </structure>
 
