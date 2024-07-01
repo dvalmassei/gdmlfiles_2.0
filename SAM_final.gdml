@@ -67,12 +67,12 @@
         </opticalsurface>
    <!--Aluminum-->
    <opticalsurface name="aluminium_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
-        <property name="REFLECTIVITY" ref="Aluminium_Surf_Reflectivity" />
+        <property name="REFLECTIVITY" ref="AluminiumSurf_Reflectivity" />
         </opticalsurface>
 
    <!--Cathode-->
    <opticalsurface name="r375_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
-        <property name="REFLECTIVITY" ref="Cathode_Surf_Reflectivity" />
+        <property name="REFLECTIVITY" ref="CathodeSurf_Reflectivity" />
         <property name="EFFICIENCY" ref="R375_Surf_Efficiency" />
         </opticalsurface>
 
