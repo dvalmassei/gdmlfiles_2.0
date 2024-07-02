@@ -114,11 +114,11 @@
 
     <!--PMT Surfaces-->
   <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
-    <volumeref ref="pmt1_window_vol"/>
+    <volumeref ref="pmt_window_vol"/>
     </skinsurface>
 
   <skinsurface name="cathode_skin_surface" surfaceproperty="cathode_surface" >
-    <volumeref ref="pmt1_cathode_vol"/>
+    <volumeref ref="pmt_cathode_vol"/>
     </skinsurface>
 
 
