@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!DOCTYPE gdml [
-  <!ENTITY matrices SYSTEM "matrices.xml">
+  <!ENTITY matrices SYSTEM "showerMaxMatrices.xml">
+	<!ENTITY materials SYSTEM "showerMaxMaterials.xml">
 ]>
 
-<gdml xmlns:xsi="http://www.w3.org/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+<gdml xmlns:xsi="http://www.w3.org/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd" >
 
  <define>
 
@@ -28,7 +29,7 @@
 
   <!--Optical Properties-->
   <!--Quartz-->
-  <opticalsurface name="quartz_surface" model="glisur" finish="ground" type="dielectric_dielectric" value="0.98">
+  <opticalsurface name="quartz_surface" model="glisur" finish="ground" type="dielectric_dielectric" value="0.96">
     </opticalsurface>
 
 
