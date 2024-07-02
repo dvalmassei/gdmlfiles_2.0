@@ -73,7 +73,7 @@
    <!--Cathode-->
    <opticalsurface name="r375_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
         <property name="REFLECTIVITY" ref="CathodeSurf_REFLECTIVITY" />
-        <property name="EFFICIENCY" ref="R375_Surf_Efficiency" />
+        <property name="EFFICIENCY" ref="Cathode_EFFICIENCY" />
         </opticalsurface>
 
 
