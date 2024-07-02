@@ -26,7 +26,7 @@
 
   <!--Optical Properties-->
   <!--Quartz-->
-  <opticalsurface name="quartz_surface" model="glisur" finish="ground" type="dielectric_dielectric" value="0.96">
+  <opticalsurface name="quartz_surface" model="glisur" finish="ground" type="dielectric_dielectric" value="0.98">
     </opticalsurface>
 
 
