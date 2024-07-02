@@ -65,16 +65,19 @@
    <!--Quartz-->
    <opticalsurface name="quartz_surface" model="glisur" finish="ground" type="dielectric_dielectric" value="0.98">
         </opticalsurface>
+
+    <!--Cathode-->
+   <opticalsurface name="r375_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
+        <property name="EFFICIENCY" ref="Cathode_EFFICIENCY" />
+        <property name="REFLECTIVITY" ref="CathodeSurf_REFLECTIVITY" />
+        </opticalsurface>
+
    <!--Aluminum-->
    <opticalsurface name="aluminium_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
         <property name="REFLECTIVITY" ref="MiroIV_REFLECTIVITY_90DEG" />
         </opticalsurface>
 
-   <!--Cathode-->
-   <opticalsurface name="r375_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
-        <property name="REFLECTIVITY" ref="CathodeSurf_REFLECTIVITY" />
-        <property name="EFFICIENCY" ref="Cathode_EFFICIENCY" />
-        </opticalsurface>
+   
 
 
 
