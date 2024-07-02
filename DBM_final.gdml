@@ -18,10 +18,7 @@
   <box lunit="mm" name="WorldBox" x="1000" y="1000" z="1000"/>
   <box lunit="mm" name="DetBox" x="500" y="500" z="200"/>
 
-
-  <arb8 name="radiator_quartz" v1x="0" v1y="0" v2x="0" v2y="10" v3x="90" v3y="10"
-      v4x="100" v4y="0" v5x="0" v5y="0" v6x="0" v6y="10" v7x="90" v7y="10"
-      v8x="100" v8y="0" dz="76/2" lunit= "mm"/>
+  <box lunit="mm" name="radiator_quart" x="100" y="76" z="10"/>
 
 
   <tube name="solid_pmt_window" rmin="0" rmax="38.1" z="3.0" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
@@ -77,7 +74,7 @@
     <physvol name="radiator_quartz_phys">
       <volumeref ref="radiator_quartz_vol" />
       <position name="radiator_quartz_pos" unit="mm" x="-100/2" y="0" z="0" />
-      <rotation name="radiator_quartz_rot" unit="deg" x="90" y="0" z="0" />
+      <rotation name="radiator_quartz_rot" unit="deg" x="0" y="0" z="0" />
       </physvol>
 
 
