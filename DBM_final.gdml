@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE gdml [
+  <!ENTITY matrices SYSTEM "matrices.xml">
+]>
+
+<gdml xmlns:xsi="http://www.w3.org/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+ <define>
+
+  &matrices;
+ </define>
+
+&materials;
+
+ <solids>
+  <box lunit="mm" name="WorldBox" x="1000" y="1000" z="1000"/>
+  <box lunit="mm" name="DetBox" x="500" y="500" z="200"/>
+
+
+  <arb8 name="radiator_quartz" v1x="0" v1y="0" v2x="0" v2y="10" v3x="90" v3y="10"
+      v4x="100" v4y="0" v5x="0" v5y="0" v6x="0" v6y="10" v7x="90" v7y="10"
+      v8x="100" v8y="0" dz="76/2" lunit= "mm"/>
+
+
+  <tube name="solid_pmt_window" rmin="0" rmax="38.1" z="3.0" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
+  <tube name="solid_pmt_cathode" rmin="0" rmax="38.1" z="3e-06" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
+
+  <!--Optical Properties-->
+  <!--Quartz-->
+  <opticalsurface name="quartz_surface" model="glisur" finish="ground" type="dielectric_dielectric" value="0.98">
+    </opticalsurface>
+
+
+  <!--Cathode-->
+  <opticalsurface name="cathode_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
+    <property name="EFFICIENCY" ref="Cathode_EFFICIENCY" />
+    <property name="REFLECTIVITY" ref="CathodeSurf_REFLECTIVITY" />
+    </opticalsurface>
+
+ </solids>
+
+
+
+
+
+ <structure>
+
+  <volume name="radiator_quartz_vol" >
+   <materialref ref="Quartz" />
+   <solidref ref="radiator_quartz" />
+  </volume>
+
+
+  <volume name="pmt_window_vol" >
+   <materialref ref="Quartz" />
+   <solidref ref="solid_pmt_window" />
+   <auxiliary auxtype="Color" auxvalue="red"/>
+  </volume>
+
+  <volume name="pmt_cathode_vol" >
+   <materialref ref="Quartz" />
+   <solidref ref="solid_pmt_cathode" />
+   <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
+   <auxiliary auxtype="Color" auxvalue="blue"/>
+  </volume>
+
+
+
+
+
+  <volume name="DetBox_vol" >
+    <materialref ref="vacuum" />
+    <solidref ref="DetBox" />
+
+    <physvol name="radiator_quartz_phys">
+      <volumeref ref="radiator_quartz_vol" />
+      <position name="radiator_quartz_pos" unit="mm" x="-100/2" y="0" z="0" />
+      <rotation name="radiator_quartz_rot" unit="deg" x="90" y="0" z="0" />
+      </physvol>
+
+
+    <physvol name="pmt1_window_phys">
+      <volumeref ref="pmt_window_vol" />
+      <position name="pmt1_window_pos" unit="mm" x="100/2 + 3.0/2.0" y="0" z="0" />
+      <rotation name="pmt1_window_rot" unit="deg" x="0" y="90" z="0" />
+      </physvol>
+
+    <physvol name="pmt1_cathode_phys">
+      <volumeref ref="pmt_cathode_vol" />
+      <position name="pmt1_cathode_pos" unit="mm" x="100/2 + 3.0 + 3e-06/2.0" y="0" z="0" />
+      <rotation name="pmt1_cathode_rot" unit="deg" x="0" y="90" z="0" />
+      </physvol>
+
+  </volume>
+
+
+  <volume name="World" >
+    <materialref ref="vacuum" />
+    <solidref ref="WorldBox" />
+
+    <physvol name="DetBox_phys" >
+      <volumeref ref="DetBox_vol" />
+      <position name="DetBox_pos" unit="mm" x="0" y="0" z="0" />
+      <rotation name="DetBox_rot" unit="deg" x="0" y="0" z="0" />
+      </physvol>
+
+  </volume>
+
+  <skinsurface name="ratiator_skin_surface" surfaceproperty="quartz_surface" >
+		<volumeref ref="radiator_quartz_vol"/>
+	  </skinsurface>
+
+    <!--PMT Surfaces-->
+  <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
+    <volumeref ref="pmt1_window_vol"/>
+    </skinsurface>
+
+  <skinsurface name="cathode_skin_surface" surfaceproperty="cathode_surface" >
+    <volumeref ref="pmt1_cathode_vol"/>
+    </skinsurface>
+
+
+</structure>
+<setup name="Default" version="1.0" >
+  <world ref="World" />
+  </setup>
+</gdml>                                                                            1,1           Top
