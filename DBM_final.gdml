@@ -45,23 +45,21 @@
  <structure>
 
   <volume name="radiator_quartz_vol" >
-   <materialref ref="Quartz" />
-   <solidref ref="radiator_quartz" />
-  </volume>
+    <materialref ref="Quartz" />
+    <solidref ref="radiator_quartz" />
+    </volume>
 
 
   <volume name="pmt_window_vol" >
-   <materialref ref="Quartz" />
-   <solidref ref="solid_pmt_window" />
-   <auxiliary auxtype="Color" auxvalue="red"/>
-  </volume>
+    <materialref ref="Quartz" />
+    <solidref ref="solid_pmt_window" />
+    </volume>
 
   <volume name="pmt_cathode_vol" >
-   <materialref ref="Quartz" />
-   <solidref ref="solid_pmt_cathode" />
-   <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
-   <auxiliary auxtype="Color" auxvalue="blue"/>
-  </volume>
+    <materialref ref="Quartz" />
+    <solidref ref="solid_pmt_cathode" />
+    <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
+    </volume>
 
 
 
@@ -73,7 +71,7 @@
 
     <physvol name="radiator_quartz_phys">
       <volumeref ref="radiator_quartz_vol" />
-      <position name="radiator_quartz_pos" unit="mm" x="-100/2" y="0" z="0" />
+      <position name="radiator_quartz_pos" unit="mm" x="0" y="0" z="0" />
       <rotation name="radiator_quartz_rot" unit="deg" x="0" y="0" z="0" />
       </physvol>
 
