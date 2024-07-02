@@ -4,42 +4,19 @@
   <!ENTITY matrices SYSTEM "matrices.xml">
 ]>
 
-<gdml xmlns:xsi="http://www.w3.org/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+<!--This is the verison I've used most recently-->
+<!--All dimensions, except quartz, are defined by constants d1-6. Simply edit these-->
+<!--To edit rotation, change the z-coord of DetBox_rot (negative mimic beam angles)-->
+
+<gdml xmlns:xsi="http://www.w3.org/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd" >
 
  <define>
- <matrix coldim="2" name="ABSLENGTH_LUCITE" values="
-  1.54986*eV 1*mm
-  1.77127*eV 1*mm
-  2.06648*eV 1*mm
-  2.47978*eV 200000*mm
-  2.75556*eV 3670*mm
-  3.09973*eV 1780*mm
-  3.30667*eV 360*mm
-  3.54286*eV 100*mm
-  3.81538*eV 70*mm
-  4.13297*eV 20*mm
-  4.95956*eV 1*mm
-  5.51063*eV 1*mm
-  5.90424*eV 1*mm"/>
-
-
-
- <matrix coldim="2" name="RINDEX_LUCITE" values="
-   1.54986*eV 1.45338
-   1.77127*eV 1.45536
-   2.06648*eV 1.4581
-   2.47978*eV 1.46239
-   3.09973*eV 1.47018
-   4.13297*eV 1.48786
-   4.95956*eV 1.50751
-   5.51063*eV 1.52422
-   5.90424*eV 1.53842"/>
 
   <position name="DetBox_pos" unit="mm" x="0" y="0" z="0" />
   <rotation name="DetBox_rot" unit="deg" x="0" y="0" z="0" />
 
-  <position name="radiator_quartz_pos" unit="mm" x="-100/2" y="0" z="0" />
-  <rotation name="radiator_quartz_rot" unit="deg" x="90" y="0" z="0" />
+  <position name="radiator_quartz_pos" unit="mm" x="0" y="0" z="0" />
+  <rotation name="radiator_quartz_rot" unit="radian" x="0" y="0" z="0" />
 
   <position name="pmt1_window_pos" unit="mm" x="100/2 + 3.0/2.0" y="0" z="0" />
   <rotation name="pmt1_window_rot" unit="deg" x="0" y="90" z="0" />
@@ -55,12 +32,6 @@
   <define>
    <quantity type="density" name="universe_mean_density" value="1.e-25" unit="g/cm3" />
   </define>
-  <element Z="1" formula="H" name="Hydrogen" >
-   <atom value="1" />
-  </element>
-  <element Z="6" formula="C" name="Carbon" >
-   <atom value="12" />
-  </element>
   <element Z="8" formula="O" name="Oxygen" >
    <atom value="16" />
   </element>
@@ -82,17 +53,14 @@
   <element Z="19" formula="K" name="Potassium" >
    <atom value="39.0983" />
   </element>
-  <element Z="82" formula="Pb" name="Lead" >
-   <atom value="206.14" />
-  </element>
   <material formula="noFormula" name="Air" >
    <property name="RINDEX" ref="Air_RINDEX"/>
+   <property name="ABSLENGTH" ref="AIR_ABSLENGTH"/>
    <D value="0.00129" />
    <fraction n="0.3" ref="Oxygen" />
    <fraction n="0.7" ref="Nitrogen" />
   </material>
   <material Z="1" name="vacuum" >
-   <property name="RINDEX" ref="Vacuum_RINDEX"/>
    <T value="2.73" />
    <P value=" 3.0E-18" unit="pascal" />
    <Dref ref="universe_mean_density" />
@@ -116,46 +84,24 @@
    <!--need to add properties-->
    <composite n="1" ref="Aluminum" />
   </material>
-  <material formula="Pb" name="Pb_mat" >
-   <D value="11.34" />
-   <composite n="1" ref="Lead" />
-  </material>
-
-  <!--Lucite-->
-  <material formula="(C5O2H8)n" name="Lucite">
-    <D value="1.18"/>
-    <fraction n="0.080538" ref="Hydrogen"/>
-    <fraction n="0.599848" ref="Carbon"/>
-    <fraction n="0.319614" ref="Oxygen"/>
-    <property name="RINDEX"    ref="RINDEX_LUCITE"/>
-    <property name="ABSLENGTH" ref="ABSLENGTH_LUCITE"/>
-  </material>
  </materials>
 
  <solids>
   <box lunit="mm" name="WorldBox" x="1000" y="1000" z="1000"/>
-  <box lunit="mm" name="DetBox" x="500" y="500" z="200"/>
-
-
-  <arb8 name="radiator_quartz" v1x="0" v1y="0" v2x="0" v2y="10" v3x="90" v3y="10"
-    v4x="100" v4y="0" v5x="0" v5y="0" v6x="0" v6y="10" v7x="90" v7y="10"
-    v8x="100" v8y="0" dz="76/2" lunit= "mm"/>
-
+  <box lunit="mm" name="DetBox" x="500" y="500" z="100"/>
+  <box lunit="mm" name="radiator_quartz" x="100" y="76" z="10"/>
 
   <tube name="solid_pmt_window" rmin="0" rmax="38.1" z="3.0" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
   <tube name="solid_pmt_cathode" rmin="0" rmax="38.1" z="3e-06" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
 
-  <!--Optical Properties-->
-  <!--Quartz-->
-  <opticalsurface name="surf1" model="glisur" finish="ground" type="dielectric_dielectric" value="0.98">
-  </opticalsurface>
+   <opticalsurface name="surf1" model="glisur" finish="ground" type="dielectric_dielectric" value="0.98">
+   </opticalsurface>
 
-
-  <!--Cathode-->
-  <opticalsurface name="surf2" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
-    <property name="REFLECTIVITY" ref="Cathode_Surf_Reflectivity" />
-    <property name="EFFICIENCY" ref="Cathode_Surf_Efficiency" />
-  </opticalsurface>
+   <!--Cathode-->
+   <opticalsurface name="surf2" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
+     <property name="REFLECTIVITY" ref="Cathode_Surf_Reflectivity" />
+     <property name="EFFICIENCY" ref="Cathode_Surf_Efficiency" />
+   </opticalsurface>
 
  </solids>
 
@@ -166,7 +112,7 @@
  <structure>
 
   <volume name="radiator_quartz_vol" >
-   <materialref ref="Lucite" />
+   <materialref ref="Quartz" />
    <solidref ref="radiator_quartz" />
   </volume>
 
@@ -174,14 +120,12 @@
   <volume name="pmt_window_vol" >
    <materialref ref="Quartz" />
    <solidref ref="solid_pmt_window" />
-   <auxiliary auxtype="Color" auxvalue="red"/>
   </volume>
 
   <volume name="pmt_cathode_vol" >
    <materialref ref="Bialkali" />
    <solidref ref="solid_pmt_cathode" />
    <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
-   <auxiliary auxtype="Color" auxvalue="blue"/>
   </volume>
 
 
