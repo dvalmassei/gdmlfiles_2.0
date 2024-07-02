@@ -180,10 +180,10 @@
     <volumeref ref="radiator_quartz_vol"/>
   </skinsurface>
   <skinsurface name="skinsrf1" surfaceproperty="surf2" >
-    <volumeref ref="pmt1_cathode_vol"/>
+    <volumeref ref="pmt_cathode_vol"/>
   </skinsurface>
   <skinsurface name="skinsrf1" surfaceproperty="surf1" >
-    <volumeref ref="pmt1_window_vol"/>
+    <volumeref ref="pmt_window_vol"/>
   </skinsurface>
 
 
