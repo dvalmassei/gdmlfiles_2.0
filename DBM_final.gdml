@@ -26,7 +26,7 @@
 
   <!--Optical Properties-->
   <!--Quartz-->
-  <opticalsurface name="quartz_surface" model="glisur" finish="ground" type="dielectric_dielectric" value="0.98">
+  <opticalsurface name="quartz_surface" model="glisur" finish="ground" type="dielectric_dielectric" value="0.96">
     </opticalsurface>
 
 
@@ -56,7 +56,7 @@
     </volume>
 
   <volume name="pmt_cathode_vol" >
-    <materialref ref="Bialkali" />
+    <materialref ref="Quartz" />
     <solidref ref="solid_pmt_cathode" />
     <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
     </volume>
