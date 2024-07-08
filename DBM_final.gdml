@@ -50,7 +50,7 @@
     </volume>
 
 
-  <volume name="_window_vol" >
+  <volume name="pmt_window_vol" >
     <materialref ref="Quartz" />
     <solidref ref="solid_pmt_window" />
     </volume>
