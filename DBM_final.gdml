@@ -15,21 +15,19 @@
 &materials;
 
  <solids>
-  <box lunit="mm" name="WorldBox" x="1000" y="1000" z="1000"/>
-  <box lunit="mm" name="DetBox" x="500" y="500" z="200"/>
+  <box lunit="mm" name="solid_WorldBox" x="1000" y="1000" z="1000"/>
+  <box lunit="mm" name="solid_DetBox" x="500" y="500" z="200"/>
 
-  <box lunit="mm" name="radiator_quartz" x="100" y="76" z="10"/>
+  <box lunit="mm" name="solid_radiator_quartz" x="100" y="76" z="10"/>
 
 
   <tube name="solid_pmt_window" rmin="0" rmax="38.1" z="3.0" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
   <tube name="solid_pmt_cathode" rmin="0" rmax="38.1" z="3e-06" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
 
   <!--Optical Properties-->
-  <!--Quartz-->
   <opticalsurface name="quartz_surface" model="glisur" finish="ground" type="dielectric_dielectric" value="0.96">
     </opticalsurface>
 
-  <!--Cathode-->
   <opticalsurface name="cathode_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
     <property name="EFFICIENCY" ref="Cathode_EFFICIENCY" />
     <property name="REFLECTIVITY" ref="CathodeSurf_REFLECTIVITY" />
@@ -43,18 +41,17 @@
 
  <structure>
 
-  <volume name="radiator_quartz_vol" >
+  <volume name="logic_radiator_quartz" >
     <materialref ref="Quartz" />
-    <solidref ref="radiator_quartz" />
+    <solidref ref="solid_radiator_quartz" />
     </volume>
 
-
-  <volume name="pmt_window_vol" >
+  <volume name="logic_pmt_window" >
     <materialref ref="Quartz" />
     <solidref ref="solid_pmt_window" />
     </volume>
 
-  <volume name="pmt_cathode_vol" >
+  <volume name="pmt_cathode_logic" >
     <materialref ref="Cathode" />
     <solidref ref="solid_pmt_cathode" />
     <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
@@ -62,25 +59,25 @@
     </volume>
 
 
-  <volume name="DetBox_vol" >
+  <volume name="logic_DetBox" >
     <materialref ref="vacuum" />
-    <solidref ref="DetBox" />
+    <solidref ref="solid_DetBox" />
 
-    <physvol name="radiator_quartz_phys">
-      <volumeref ref="radiator_quartz_vol" />
+    <physvol name="phys_radiator_quartz">
+      <volumeref ref="logic_radiator_quartz" />
       <position name="radiator_quartz_pos" unit="mm" x="0" y="0" z="0" />
       <rotation name="radiator_quartz_rot" unit="deg" x="0" y="0" z="0" />
       </physvol>
 
 
-    <physvol name="pmt_window_phys">
-      <volumeref ref="pmt_window_vol" />
+    <physvol name="phys_pmt_window">
+      <volumeref ref="logic_pmt_window" />
       <position name="pmt_window_pos" unit="mm" x="100/2 + 3.0/2.0 + 0.1" y="0" z="0" />
       <rotation name="pmt_window_rot" unit="deg" x="0" y="90" z="0" />
       </physvol>
 
-    <physvol name="pmt_cathode_phys">
-      <volumeref ref="pmt_cathode_vol" />
+    <physvol name="phys_pmt_cathode">
+      <volumeref ref="logic_pmt_cathode" />
       <position name="pmt_cathode_pos" unit="mm" x="100/2 + 3.0 + 3e-06/2.0 + 0.1" y="0" z="0" />
       <rotation name="pmt_cathode_rot" unit="deg" x="0" y="90" z="0" />
       </physvol>
@@ -92,8 +89,8 @@
     <materialref ref="vacuum" />
     <solidref ref="WorldBox" />
 
-    <physvol name="DetBox_phys" >
-      <volumeref ref="DetBox_vol" />
+    <physvol name="phys_DetBox" >
+      <volumeref ref="logic_DetBox" />
       <position name="DetBox_pos" unit="mm" x="0" y="0" z="0" />
       <rotation name="DetBox_rot" unit="deg" x="0" y="0" z="0" />
       </physvol>
@@ -107,11 +104,11 @@
 -->
     <!--PMT Surfaces-->
   <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
-    <volumeref ref="pmt_window_vol"/>
+    <volumeref ref="logic_pmt_window"/>
     </skinsurface>
 
   <skinsurface name="cathode_skin_surface" surfaceproperty="cathode_surface" >
-    <volumeref ref="pmt_cathode_vol"/>
+    <volumeref ref="logic_pmt_cathode"/>
     </skinsurface>
 
 
