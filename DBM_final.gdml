@@ -87,7 +87,7 @@
 
   <volume name="World" >
     <materialref ref="vacuum" />
-    <solidref ref="WorldBox" />
+    <solidref ref="solid_WorldBox" />
 
     <physvol name="phys_DetBox" >
       <volumeref ref="logic_DetBox" />
