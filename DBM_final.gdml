@@ -56,7 +56,7 @@
     </volume>
 
   <volume name="pmt_cathode_vol" >
-    <materialref ref="Quartz" />
+    <materialref ref="Bialkali" />
     <solidref ref="solid_pmt_cathode" />
     <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
     </volume>
