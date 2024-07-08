@@ -29,11 +29,10 @@
   <opticalsurface name="quartz_surface" model="glisur" finish="ground" type="dielectric_dielectric" value="0.96">
     </opticalsurface>
 
-
   <!--Cathode-->
   <opticalsurface name="cathode_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
-    <property name="REFLECTIVITY" ref="CathodeSurf_REFLECTIVITY" />
     <property name="EFFICIENCY" ref="Cathode_EFFICIENCY" />
+    <property name="REFLECTIVITY" ref="CathodeSurf_REFLECTIVITY" />
     </opticalsurface>
 
  </solids>
@@ -61,21 +60,6 @@
     <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
     <auxiliary auxtype="DetType" auxvalue="opticalphoton" />
     </volume>
-
-
-<!--
-  <skinsurface name="ratiator_skin_surface" surfaceproperty="quartz_surface" >
-		<volumeref ref="radiator_quartz_vol"/>
-	  </skinsurface>
--->
-    <!--PMT Surfaces-->
-  <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
-    <volumeref ref="pmt_window_vol"/>
-    </skinsurface>
-
-  <skinsurface name="cathode_skin_surface" surfaceproperty="cathode_surface" >
-    <volumeref ref="pmt_cathode_vol"/>
-    </skinsurface>
 
 
   <volume name="DetBox_vol" >
@@ -115,6 +99,20 @@
       </physvol>
 
   </volume>
+
+  <!--
+  <skinsurface name="ratiator_skin_surface" surfaceproperty="quartz_surface" >
+		<volumeref ref="radiator_quartz_vol"/>
+	  </skinsurface>
+-->
+    <!--PMT Surfaces-->
+  <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
+    <volumeref ref="pmt_window_vol"/>
+    </skinsurface>
+
+  <skinsurface name="cathode_skin_surface" surfaceproperty="cathode_surface" >
+    <volumeref ref="pmt_cathode_vol"/>
+    </skinsurface>
 
 
 </structure>
