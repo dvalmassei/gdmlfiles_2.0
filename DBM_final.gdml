@@ -50,19 +50,31 @@
     </volume>
 
 
-  <volume name="pmt_window_vol" >
+  <volume name="_window_vol" >
     <materialref ref="Quartz" />
     <solidref ref="solid_pmt_window" />
     </volume>
 
   <volume name="pmt_cathode_vol" >
-    <materialref ref="Bialkali" />
+    <materialref ref="Quartz" />
     <solidref ref="solid_pmt_cathode" />
     <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
     </volume>
 
 
 
+  <skinsurface name="ratiator_skin_surface" surfaceproperty="quartz_surface" >
+		<volumeref ref="radiator_quartz_vol"/>
+	  </skinsurface>
+
+    <!--PMT Surfaces-->
+  <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
+    <volumeref ref="pmt_window_vol"/>
+    </skinsurface>
+
+  <skinsurface name="cathode_skin_surface" surfaceproperty="cathode_surface" >
+    <volumeref ref="pmt_cathode_vol"/>
+    </skinsurface>
 
 
   <volume name="DetBox_vol" >
@@ -76,16 +88,16 @@
       </physvol>
 
 
-    <physvol name="pmt1_window_phys">
+    <physvol name="pmt_window_phys">
       <volumeref ref="pmt_window_vol" />
-      <position name="pmt1_window_pos" unit="mm" x="100/2 + 3.0/2.0 + 0.1" y="0" z="0" />
-      <rotation name="pmt1_window_rot" unit="deg" x="0" y="90" z="0" />
+      <position name="pmt_window_pos" unit="mm" x="100/2 + 3.0/2.0 + 0.1" y="0" z="0" />
+      <rotation name="pmt_window_rot" unit="deg" x="0" y="90" z="0" />
       </physvol>
 
-    <physvol name="pmt1_cathode_phys">
+    <physvol name="pmt_cathode_phys">
       <volumeref ref="pmt_cathode_vol" />
-      <position name="pmt1_cathode_pos" unit="mm" x="100/2 + 3.0 + 3e-06/2.0 + 0.1" y="0" z="0" />
-      <rotation name="pmt1_cathode_rot" unit="deg" x="0" y="90" z="0" />
+      <position name="pmt_cathode_pos" unit="mm" x="100/2 + 3.0 + 3e-06/2.0 + 0.1" y="0" z="0" />
+      <rotation name="pmt_cathode_rot" unit="deg" x="0" y="90" z="0" />
       </physvol>
 
   </volume>
@@ -102,19 +114,6 @@
       </physvol>
 
   </volume>
-
-  <skinsurface name="ratiator_skin_surface" surfaceproperty="quartz_surface" >
-		<volumeref ref="radiator_quartz_vol"/>
-	  </skinsurface>
-
-    <!--PMT Surfaces-->
-  <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
-    <volumeref ref="pmt_window_vol"/>
-    </skinsurface>
-
-  <skinsurface name="cathode_skin_surface" surfaceproperty="cathode_surface" >
-    <volumeref ref="pmt_cathode_vol"/>
-    </skinsurface>
 
 
 </structure>
