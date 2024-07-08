@@ -32,8 +32,8 @@
 
   <!--Cathode-->
   <opticalsurface name="cathode_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
-    <property name="EFFICIENCY" ref="Cathode_EFFICIENCY" />
     <property name="REFLECTIVITY" ref="CathodeSurf_REFLECTIVITY" />
+    <property name="EFFICIENCY" ref="Cathode_EFFICIENCY" />
     </opticalsurface>
 
  </solids>
@@ -56,17 +56,18 @@
     </volume>
 
   <volume name="pmt_cathode_vol" >
-    <materialref ref="Quartz" />
+    <materialref ref="Cathode" />
     <solidref ref="solid_pmt_cathode" />
     <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
+    <auxiliary auxtype="DetType" auxvalue="opticalphoton" />
     </volume>
 
 
-
+<!--
   <skinsurface name="ratiator_skin_surface" surfaceproperty="quartz_surface" >
 		<volumeref ref="radiator_quartz_vol"/>
 	  </skinsurface>
-
+-->
     <!--PMT Surfaces-->
   <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
     <volumeref ref="pmt_window_vol"/>
