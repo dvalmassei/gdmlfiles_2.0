@@ -51,7 +51,7 @@
     <solidref ref="solid_pmt_window" />
     </volume>
 
-  <volume name="pmt_cathode_logic" >
+  <volume name="logic_pmt_cathode" >
     <materialref ref="Cathode" />
     <solidref ref="solid_pmt_cathode" />
     <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
