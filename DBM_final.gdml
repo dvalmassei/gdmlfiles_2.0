@@ -31,7 +31,7 @@
 
 
   <!--Cathode-->
-  <opticalsurface name="cathode_surface" model="glisur" finish="ground" type="dielectric_dialectric" value="1.0">
+  <opticalsurface name="cathode_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
     <property name="EFFICIENCY" ref="Cathode_EFFICIENCY" />
     <property name="REFLECTIVITY" ref="CathodeSurf_REFLECTIVITY" />
     </opticalsurface>
@@ -78,13 +78,13 @@
 
     <physvol name="pmt1_window_phys">
       <volumeref ref="pmt_window_vol" />
-      <position name="pmt1_window_pos" unit="mm" x="100/2 + 3.0/2.0" y="0" z="0" />
+      <position name="pmt1_window_pos" unit="mm" x="100/2 + 3.0/2.0 + 0.1" y="0" z="0" />
       <rotation name="pmt1_window_rot" unit="deg" x="0" y="90" z="0" />
       </physvol>
 
     <physvol name="pmt1_cathode_phys">
       <volumeref ref="pmt_cathode_vol" />
-      <position name="pmt1_cathode_pos" unit="mm" x="100/2 + 3.0 + 3e-06/2.0" y="0" z="0" />
+      <position name="pmt1_cathode_pos" unit="mm" x="100/2 + 3.0 + 3e-06/2.0 + 0.1" y="0" z="0" />
       <rotation name="pmt1_cathode_rot" unit="deg" x="0" y="90" z="0" />
       </physvol>
 
