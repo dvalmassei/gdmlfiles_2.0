@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE gdml [
+	<!ENTITY matrices SYSTEM "showerMaxMatrices.xml">
+	<!ENTITY materials SYSTEM "showerMaxMaterials.xml">
+    ]>
+
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+
+
+<!--This is the finalized LAM gdml-->
+<define>
+    <!-- Radiator and Light Guide Parameters-->
+    <constant name="thickness" value="10" />
+    <constant name="offset" value="60" />
+
+    <constant name="d3" value="30" />  <!--Z distance from PMT to Quartz-->
+    <constant name="chamfer" value="70" />
+    <constant name="length" value="250" />
+    <constant name="height" value="165" />
+    <constant name="detBox_r" value="1033.5 + height/2"/>
+
+    &matrices;
+	</define>
+
+&materials;   
+
+<solids>
+    <box lunit="mm" name="WorldBox" x="7000" y="7000" z="7000"/>
+    <box lunit="mm" name="DetBox" x="500" y="500" z="200"/>
+
+    <box lunit="mm" name="radiator_quartz" x="length" y="height" z="thickness"/>
+
+    <box lunit="mm" name="radiator_quartz_cut2" x="length" y="5" z="thickness"/>
+
+    <arb8 name="radiator_cut" v1x="0" v1y="-1" v2x="0" v2y="11" v3x="chamfer + 1" v3y="11"
+        v4x="chamfer + 1" v4y="-1" v5x="0" v5y="11" v6x="0" v6y="11" v7x="chamfer + 1" v7y="11"
+        v8x="chamfer + 1" v8y="11" dz="12/2" lunit= "mm"/>
+
+    <subtraction name="radiator_1_cut" >
+        <first ref="radiator_quartz"/>
+        <second ref="radiator_cut"/>
+        <position name="right_rad_cut_pos" unit="mm" x="length/2 - chamfer" y="height/2 - 10" z="0" />
+        <rotation name="right_rad_cut_rot" unit="deg" x="0" y="0" z="0" />
+        </subtraction>
+
+    <subtraction name="radiator" >
+        <first ref="radiator_1_cut"/>
+        <second ref="radiator_cut"/>
+        <position name="left_rad_cut_pos" unit="mm" x="-length/2 - 1 " y="height/2 - 10" z="0" />
+        <rotation name="left_rad_cut_rot" unit="deg" x="0" y="0" z="0" />
+        </subtraction>
+
+    <tube name="solid_pmt_window" rmin="0" rmax="38.1" z="3.0" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
+    <tube name="solid_pmt_cathode" rmin="0" rmax="38.1" z="3e-06" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
+
+                <!--Plastic Enclosure solids-->
+    <box lunit="mm" name="frontPlate_solid" x="length" y="height" z="0.5"/>
+    <box lunit="mm" name="backPlate_solid" x="length" y="height - 10" z="0.5"/>
+    <box lunit="mm" name="topPlate_solid" x="thickness" y="length - (2*chamfer) - 1.4" z="0.5"/>
+    <box lunit="mm" name="botPlate_solid" x="thickness" y="length" z="0.5"/>
+    <box lunit="mm" name="sidePlate_solid" x="thickness" y="height -10" z="0.5"/>
+    <box lunit="mm" name="bunnyEar_solid" x="chamfer" y="48.8" z="0.5"/>
+    <box lunit="mm" name="bunnyEarOutsidePlate_solid" x="thickness + d3" y="48.4 + 10" z="0.5"/>
+    <box lunit="mm" name="bunnyEarInsidePlate_solid" x="thickness + d3" y="48.4" z="0.5"/>
+    <box lunit="mm" name="bunnyEarTopPlate_solid" x="thickness + d3" y="chamfer" z="0.5"/>
+    <box lunit="mm" name="bunnyEarBottomPlate_solid" x="d3" y="chamfer" z="0.5"/>
+
+
+
+
+
+
+    <!--Optical Properties-->
+    <opticalsurface name="quartz_surface" model="glisur" finish="ground" type="dielectric_dielectric" value="0.98" >
+        </opticalsurface>
+
+    <opticalsurface name="cathode_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
+        <property name="EFFICIENCY" ref="Cathode_EFFICIENCY" />
+        <property name="REFLECTIVITY" ref="CathodeSurf_REFLECTIVITY" />
+        </opticalsurface>
+    </solids>
+
+
+<structure>
+    <!--LOGIC VOLUMES-->
+    <volume name="radiator_quartz_logic" >
+        <materialref ref="Quartz" />
+        <solidref ref="radiator" />
+        </volume>
+
+	<volume name="pmt1_window_logic" >
+        <materialref ref="Quartz" />
+        <solidref ref="solid_pmt_window" />
+        </volume>
+
+    <volume name="pmt1_cathode_logic" >
+        <materialref ref="Cathode" />
+        <solidref ref="solid_pmt_cathode" />
+        <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
+        <auxiliary auxtype="DetType" auxvalue="opticalphoton" />
+        <auxiliary auxtype="DetNo" auxvalue="7001"/>
+        </volume>
+    
+                    <!--Plastic Enclosure-->
+    <volume name="enclosure_backPlate_logic">
+        <materialref ref="Nylon"/>
+        <solidref ref="backPlate_solid"/>
+        </volume>
+
+    <volume name="enclosure_frontPlate_logic">
+        <materialref ref="Nylon"/>
+        <solidref ref="frontPlate_solid"/>
+        </volume>
+
+    <volume name="enclosure_topPlate_logic">
+        <materialref ref="Nylon"/>
+        <solidref ref="topPlate_solid"/>
+        </volume>
+
+    <volume name="enclosure_rightPlate_logic">
+        <materialref ref="Nylon"/>
+        <solidref ref="sidePlate_solid"/>
+        </volume>
+
+    <volume name="enclosure_leftPlate_logic">
+        <materialref ref="Nylon"/>
+        <solidref ref="sidePlate_solid"/>
+        </volume>
+
+    <volume name="enclosure_botPlate_logic">
+        <materialref ref="Nylon"/>
+        <solidref ref="botPlate_solid"/>
+        </volume>
+
+    <volume name="enclosure_topPlate_logic">
+        <materialref ref="Nylon"/>
+        <solidref ref="topPlate_solid"/>
+        </volume>
+
+    <volume name="bunnyEar_logic">
+        <materialref ref="Nylon"/>
+        <solidref ref="bunnyEar_solid"/>
+        </volume>
+
+    <volume name="bunnyEarOutsidePlate_logic">
+        <materialref ref="Nylon"/>
+        <solidref ref="bunnyEarOutsidePlate_solid"/>
+        </volume>
+    
+    <volume name="bunnyEarInsidePlate_logic">
+        <materialref ref="Nylon"/>
+        <solidref ref="bunnyEarInsidePlate_solid"/>
+        </volume>
+
+    <volume name="bunnyEarTopPlate_logic">
+        <materialref ref="Nylon"/>
+        <solidref ref="bunnyEarTopPlate_solid"/>
+        </volume>
+
+    <volume name="bunnyEarBottomPlate_logic">
+        <materialref ref="Nylon"/>
+        <solidref ref="bunnyEarBottomPlate_solid"/>
+        </volume>
+
+    <!--Radiator Surface-->
+    <skinsurface name="ratiator_skin_surface" surfaceproperty="quartz_surface" >
+		<volumeref ref="radiator_quartz_logic"/>
+	    </skinsurface>
+
+    <!--PMT Surfaces-->
+
+    <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
+        <volumeref ref="pmt1_window_logic"/>
+        </skinsurface>
+
+    <volume name="DetBox_logic" >
+        <materialref ref="Air" />
+        <solidref ref="DetBox" />
+
+    <!--PHYSICAL VOLUMES-->
+        <physvol name="radiator_quartz_phys">
+            <volumeref ref="radiator_quartz_logic" />
+            <position name="radiator_quartz_pos" unit="mm" x="0" y="0" z="0" />
+            <rotation name="radiator_quartz_rot" unit="deg" x="0" y="180" z="0" />
+            </physvol>
+
+                        <!--PMTs-->
+
+        <physvol name="pmt1_window_phys">
+            <volumeref ref="pmt1_window_logic" />
+            <position name="pmt1_window_pos" unit="mm" x="length/2-chamfer/2" y="height/2 + 38.1/2" z="thickness/2 + 3.0/2.0 + d3" />
+            <rotation name="pmt1_window_rot" unit="radian" x="0" y="0" z="0" />
+            </physvol>
+
+        <physvol name="pmt1_cathode_phys">
+            <volumeref ref="pmt1_cathode_logic" />
+            <position name="pmt1_cathode_pos" unit="mm" x="length/2-chamfer/2" y="height/2 + 38.1/2" z="thickness/2 +3+3e-06/2.0 + d3" />
+            <rotation name="pmt1_cathode_rot" unit="radian" x="0" y="0" z="0" />
+            </physvol>
+
+                    <!--Plastic Enclosure-->
+
+        <physvol name="enclosure_backPlate_phys">
+            <volumeref ref="enclosure_backPlate_logic" />
+            <position name="backPlate_pos" unit="mm" x="0" y="-5 - 0.5" z="thickness/2 + 0.7/2" />
+            <rotation name="backPlate_rot" unit="radian" x="0" y="0" z="0" />
+            </physvol>
+
+        <physvol name="enclosure_frontPlate_phys">
+            <volumeref ref="enclosure_frontPlate_logic" />
+            <position name="frontPlate_pos" unit="mm" x="0" y="0" z="-(thickness/2 + 0.7/2)" />
+            <rotation name="frontPlate_rot" unit="radian" x="0" y="0" z="0" />
+            </physvol>
+
+        <physvol name="enclosure_botPlate_phys">
+            <volumeref ref="enclosure_botPlate_logic" />
+            <position name="botPlate_pos" unit="mm" x="0" y="-(height/2 + 0.7/2)" z="0" />
+            <rotation name="botPlate_rot" unit="deg" x="90" y="0" z="90" />
+            </physvol>
+
+        <physvol name="enclosure_topPlate_phys">
+            <volumeref ref="enclosure_topPlate_logic" />
+            <position name="topPlate_pos" unit="mm" x="0" y="height/2 + 0.7/2" z="0" />
+            <rotation name="topPlate_rot" unit="deg" x="90" y="0" z="90" />
+            </physvol>
+
+        <physvol name="enclosure_leftPlate_phys">
+            <volumeref ref="enclosure_leftPlate_logic" />
+            <position name="leftPlate_pos" unit="mm" x="-(length/2 + 0.7/2)" y="-5" z="0" />
+            <rotation name="leftPlate_rot" unit="deg" x="0" y="90" z="0" />
+            </physvol>
+
+        <physvol name="enclosure_rightPlate_phys">
+            <volumeref ref="enclosure_rightPlate_logic" />
+            <position name="rightPlate_pos" unit="mm" x="length/2 + 0.7/2" y="-5" z="0" />
+            <rotation name="rightPlate_rot" unit="deg" x="0" y="90" z="0" />
+            </physvol>
+
+        <physvol name="right_bunnyEar_phys">
+            <volumeref ref="bunnyEar_logic" />
+            <position name="right_bunnyEar_pos" unit="mm" x="length/2 - chamfer/2" y="height/2 + 48.8/2" z="-(thickness/2 + 0.7/2)" />
+            <rotation name="right_bunnyEar_rot" unit="deg" x="0" y="0" z="0" />
+            </physvol>
+
+        <physvol name="left_bunnyEar_phys">
+            <volumeref ref="bunnyEar_logic" />
+            <position name="left_bunnyEar_pos" unit="mm" x="-(length/2 - chamfer/2)" y="height/2 + 48.8/2" z="-(thickness/2 + 0.7/2)" />
+            <rotation name="left_bunnyEar_rot" unit="deg" x="0" y="0" z="0" />
+            </physvol>
+
+        <physvol name="right_bunnyEarOutsidePlate_phys">
+            <volumeref ref="bunnyEarOutsidePlate_logic" />
+            <position name="right_bunnyEarOutsidePlate_pos" unit="mm" x="length/2 + 0.7/2" y="height/2 + 48.8/2 -5" z="d3/2" />
+            <rotation name="right_bunnyEarOutsidePlate_rot" unit="deg" x="0" y="90" z="0" />
+            </physvol>
+
+        <physvol name="left_bunnyEarOutsidePlate_phys">
+            <volumeref ref="bunnyEarOutsidePlate_logic" />
+            <position name="left_bunnyEarOutsidePlate_pos" unit="mm" x="-(length/2 + 0.7/2)" y="height/2 + 48.8/2 -5" z="d3/2" />
+            <rotation name="left_bunnyEarOutsidePlate_rot" unit="deg" x="0" y="90" z="0" />
+            </physvol>
+        
+        <physvol name="right_bunnyEarinsidePlate_phys">
+            <volumeref ref="bunnyEarInsidePlate_logic" />
+            <position name="right_bunnyEarInsidePlate_pos" unit="mm" x="length/2 - chamfer" y="height/2 + 48.8/2" z="d3/2" />
+            <rotation name="right_bunnyEarInsidePlate_rot" unit="deg" x="0" y="90" z="0" />
+            </physvol>
+
+        <physvol name="left_bunnyEarinsidePlate_phys">
+            <volumeref ref="bunnyEarInsidePlate_logic" />
+            <position name="left_bunnyEarInsidePlate_pos" unit="mm" x="-(length/2 - chamfer)" y="height/2 + 48.8/2" z="d3/2" />
+            <rotation name="left_bunnyEarInsidePlate_rot" unit="deg" x="0" y="90" z="0" />
+            </physvol>
+            
+        <physvol name="right_bunnyEarTopPlate_phys">
+            <volumeref ref="bunnyEarTopPlate_logic" />
+            <position name="right_bunnyEarTopPlate_pos" unit="mm" x="length/2 - chamfer/2" y="height/2 + 48.8 + 0.7/2" z="d3/2" />
+            <rotation name="right_bunnyEarTopPlate_rot" unit="deg" x="90" y="0" z="90" />
+            </physvol>
+
+        <physvol name="left_bunnyEarTopPlate_phys">
+            <volumeref ref="bunnyEarTopPlate_logic" />
+            <position name="left_bunnyEarTopPlate_pos" unit="mm" x="-(length/2 - chamfer/2)" y="height/2 + 48.8 + 0.7/2" z="d3/2" />
+            <rotation name="left_bunnyEarTopPlate_rot" unit="deg" x="90" y="0" z="90" />
+            </physvol>
+
+        <physvol name="right_bunnyEarBottomPlate_phys">
+            <volumeref ref="bunnyEarBottomPlate_logic" />
+            <position name="right_bunnyEarBottomPlate_pos" unit="mm" x="length/2 - chamfer/2" y="height/2 + 0.7/2 - 10" z="d3/2 + thickness/2" />
+            <rotation name="right_bunnyEarBottomPlate_rot" unit="deg" x="90" y="0" z="90" />
+            </physvol>
+        
+        <physvol name="left_bunnyEarBottomPlate_phys">
+            <volumeref ref="bunnyEarBottomPlate_logic" />
+            <position name="left_bunnyEarBottomPlate_pos" unit="mm" x="-(length/2 - chamfer/2)" y="height/2 + 0.7/2 -10" z="d3/2 + thickness/2" />
+            <rotation name="left_bunnyEarBottomPlate_rot" unit="deg" x="90" y="0" z="90" />
+            </physvol>
+
+            </volume>
+
+
+    <volume name="World" >
+        <materialref ref="vacuum" />
+        <solidref ref="WorldBox" />
+
+
+        <physvol name="DetBox_phys" >
+            <volumeref ref="DetBox_logic" />
+            <position name="DetBox_pos" unit="mm" x="0" y="0" z="0" />
+	        <rotation name="DetBox_rot" unit="deg" x="0" y="0" z="0" />
+            </physvol>
+
+    </volume>
+    
+    <bordersurface name="cathode_border_surface_1" surfaceproperty="cathode_surface" >
+        <physvolref ref="pmt1_window_phys"/>
+        <physvolref ref="pmt1_cathode_phys"/>
+        </bordersurface>
+
+  </structure>
+
+
+<setup name="Default" version="1.0" >
+    <world ref="World" />
+    </setup>
+</gdml>
