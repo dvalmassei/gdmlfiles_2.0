@@ -5,7 +5,10 @@
 	<!ENTITY materials SYSTEM "showerMaxMaterials.xml">
 ]>
 
-<gdml xmlns:xsi="http://www.w3.org/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd" >
+<gdml 
+
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
 
  <define>
 
@@ -29,8 +32,8 @@
     </opticalsurface>
 
   <opticalsurface name="cathode_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
-    <property name="EFFICIENCY" ref="Cathode_EFFICIENCY" />
     <property name="REFLECTIVITY" ref="CathodeSurf_REFLECTIVITY" />
+    <property name="EFFICIENCY" ref="Cathode_EFFICIENCY" />
     </opticalsurface>
 
  </solids>
@@ -61,7 +64,7 @@
 
 
   <volume name="logic_DetBox" >
-    <materialref ref="vacuum" />
+    <materialref ref="Air" />
     <solidref ref="solid_DetBox" />
 
     <physvol name="phys_radiator_quartz">
@@ -87,7 +90,7 @@
 
 
   <volume name="World" >
-    <materialref ref="vacuum" />
+    <materialref ref="Air" />
     <solidref ref="solid_WorldBox" />
 
     <physvol name="phys_DetBox" >

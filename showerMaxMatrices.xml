@@ -705,8 +705,8 @@
 1.55*eV 0.0
 6.20*eV 0.0"/>
 <matrix name="CathodeSurf_REFLECTIVITY" coldim="2" values="
-1.55*eV 1.0
-6.20*eV 1.0"/>
+1.55*eV 0.0
+6.20*eV 0.0"/>
 <matrix name="Cathode_EFFICIENCY" coldim="2" values="
 1.55*eV 0.00107604
 1.58*eV 0.00107604
