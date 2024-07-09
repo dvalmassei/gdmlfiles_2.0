@@ -116,8 +116,8 @@
     </skinsurface>
 -->
   <bordersurface name="cathode_border_surface" surfaceproperty="cathode_surface" >
-    <physvolref ref="pmt_window_phys"/>
-    <physvolref ref="pmt_cathode_phys"/>
+    <physvolref ref="phys_pmt_window"/>
+    <physvolref ref="phys_pmt_cathode"/>
     </bordersurface>
 
 </structure>
