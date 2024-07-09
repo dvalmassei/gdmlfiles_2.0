@@ -98,6 +98,8 @@
         <materialref ref="Quartz" />
         <solidref ref="solid_pmt_cathode" />
         <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
+        <auxiliary auxtype="DetType" auxvalue="opticalphoton" />
+        <auxiliary auxtype="DetNo" auxvalue="7001"/>
         </volume>
 
     <volume name="pmt2_window_logic" >
@@ -109,6 +111,8 @@
         <materialref ref="Quartz" />
         <solidref ref="solid_pmt_cathode" />
         <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
+        <auxiliary auxtype="DetType" auxvalue="opticalphoton" />
+        <auxiliary auxtype="DetNo" auxvalue="7002"/>
         </volume>
     
                     <!--Plastic Enclosure-->
@@ -178,6 +182,7 @@
 	    </skinsurface>
 
     <!--PMT Surfaces-->
+<!--
     <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
         <volumeref ref="pmt1_window_logic"/>
         </skinsurface>
@@ -197,7 +202,7 @@
     <volume name="DetBox_logic" >
         <materialref ref="Air" />
         <solidref ref="DetBox" />
-
+-->
     <!--PHYSICAL VOLUMES-->
         <physvol name="radiator_quartz_phys">
             <volumeref ref="radiator_quartz_logic" />
@@ -344,7 +349,16 @@
             </physvol>
 
     </volume>
-  
+    
+    <bordersurface name="cathode_border_surface_1" surfaceproperty="cathode_surface" >
+        <physvolref ref="pmt1_window_phys"/>
+        <physvolref ref="pmt1_cathode_phys"/>
+        </bordersurface>
+
+    <bordersurface name="cathode_border_surface_2" surfaceproperty="cathode_surface" >
+        <physvolref ref="pmt2_window_phys"/>
+        <physvolref ref="pmt2_cathode_phys"/>
+        </bordersurface>
     
   </structure>
 
