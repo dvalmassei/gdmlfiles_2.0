@@ -103,7 +103,7 @@
 
 
   <skinsurface name="ratiator_skin_surface" surfaceproperty="quartz_surface" >
-		<volumeref ref="radiator_quartz_vol"/>
+		<volumeref ref="logic_radiator_quartz"/>
 	  </skinsurface>
 
     <!--PMT Surfaces-->
