@@ -101,20 +101,24 @@
 
   </volume>
 
-  <!--
+
   <skinsurface name="ratiator_skin_surface" surfaceproperty="quartz_surface" >
 		<volumeref ref="radiator_quartz_vol"/>
 	  </skinsurface>
--->
+
     <!--PMT Surfaces-->
   <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
     <volumeref ref="logic_pmt_window"/>
     </skinsurface>
-
+<!--
   <skinsurface name="cathode_skin_surface" surfaceproperty="cathode_surface" >
     <volumeref ref="logic_pmt_cathode"/>
     </skinsurface>
-
+-->
+  <bordersurface name="cathode_border_surface" surfaceproperty="cathode_surface" >
+    <physvolref ref="logic_window_phys"/>
+    <physvolref ref="logic_cathode_phys"/>
+    </bordersurface>
 
 </structure>
 <setup name="Default" version="1.0" >
