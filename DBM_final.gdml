@@ -110,11 +110,7 @@
   <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
     <volumeref ref="logic_pmt_window"/>
     </skinsurface>
-<!--
-  <skinsurface name="cathode_skin_surface" surfaceproperty="cathode_surface" >
-    <volumeref ref="logic_pmt_cathode"/>
-    </skinsurface>
--->
+
   <bordersurface name="cathode_border_surface" surfaceproperty="cathode_surface" >
     <physvolref ref="phys_pmt_window"/>
     <physvolref ref="phys_pmt_cathode"/>
