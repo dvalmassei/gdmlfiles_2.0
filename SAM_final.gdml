@@ -63,7 +63,7 @@
 
    <!--Optical Properties-->
    <!--Quartz-->
-   <opticalsurface name="quartz_surface" model="glisur" finish="ground" type="dielectric_dielectric" value="0.96">
+   <opticalsurface name="quartz_surface" model="glisur" finish="ground" type="dielectric_dielectric" value="0.98">
         </opticalsurface>
 
     <!--Cathode-->
@@ -133,6 +133,8 @@
         <materialref ref="Quartz" />
         <solidref ref="solid_pmt_cathode" />
         <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
+        <auxiliary auxtype="DetType" auxvalue="opticalphoton" />
+        <auxiliary auxtype="DetNo" auxvalue="7001"/>
         </volume>
 
     <skinsurface name="skinsrf1" surfaceproperty="quartz_surface" >
@@ -160,11 +162,6 @@
     <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
         <volumeref ref="pmt_window_vol"/>
         </skinsurface>
-
-    <skinsurface name="cathode_skin_surface" surfaceproperty="r375_surface" >
-        <volumeref ref="pmt_cathode_vol"/>
-        </skinsurface>
-
 
     <!--Detector Assembly-->
     <volume name="DetBox_vol" >
@@ -237,8 +234,6 @@
             </volume>
 
 
-
-
     <!--World Assembly-->
     <volume name="World" >
       <materialref ref="Air" />
@@ -252,6 +247,11 @@
         </physvol>
 
         </volume>
+
+    <bordersurface name="cathode_border_surface_1" surfaceproperty="cathode_surface" >
+        <physvolref ref="pmt1_window_phys"/>
+        <physvolref ref="pmt1_cathode_phys"/>
+        </bordersurface>
 
     </structure>
 
