@@ -95,7 +95,7 @@
         </volume>
 
     <volume name="pmt1_cathode_logic" >
-        <materialref ref="Quartz" />
+        <materialref ref="Cathode" />
         <solidref ref="solid_pmt_cathode" />
         <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
         <auxiliary auxtype="DetType" auxvalue="opticalphoton" />
@@ -108,7 +108,7 @@
         </volume>
 
     <volume name="pmt2_cathode_logic" >
-        <materialref ref="Quartz" />
+        <materialref ref="Cathode" />
         <solidref ref="solid_pmt_cathode" />
         <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
         <auxiliary auxtype="DetType" auxvalue="opticalphoton" />
