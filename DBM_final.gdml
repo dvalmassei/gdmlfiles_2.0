@@ -34,11 +34,7 @@
 
   <opticalsurface name="cathode_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
     <property name="REFLECTIVITY" ref="CathodeSurf_REFLECTIVITY" />
-    <property name="EFFICIENCY" ref="Cathode_EFFICIENCY" />
-    </opticalsurface>
-
-  <opticalsurface name="optical_grease_surface" model="glisur" finish="polished" type="dielectric_dialectric" value="1.0">
-    <property name="EFFICIENCY" ref="Optical_Grease_Efficiency" />
+    <property name="EFFICIENCY" ref="Cathode_EFFICIENCY_with_grease" />
     </opticalsurface>
 
  </solids>
@@ -129,12 +125,7 @@
     <physvolref ref="phys_pmt_window"/>
     <physvolref ref="phys_pmt_cathode"/>
     </bordersurface>
-
-  <bordersurface name="optical_grease_border_surface" surfaceproperty="optical_grease_surface" >
-    <physvolref ref="phys_pmt_window"/>
-    <physvolref ref="phys_radiator_quartz"/>
-    </bordersurface>
-
+    
 </structure>
 <setup name="Default" version="1.0" >
   <world ref="World" />
