@@ -37,6 +37,10 @@
     <property name="EFFICIENCY" ref="Cathode_EFFICIENCY" />
     </opticalsurface>
 
+  <opticalsurface name="optical_grease_surface" model="glisur" finish="polished" type="dielectric_dialectric" value="1.0">
+    <property name="EFFICIENCY" ref="Optical_Grease_Efficiency" />
+    </opticalsurface>
+
  </solids>
 
 
@@ -86,13 +90,13 @@
 
     <physvol name="phys_pmt_window">
       <volumeref ref="logic_pmt_window" />
-      <position name="pmt_window_pos" unit="mm" x="100/2 + 3.0/2.0 + 1" y="0" z="0" />
+      <position name="pmt_window_pos" unit="mm" x="100/2 + 3.0/2.0" y="0" z="0" />
       <rotation name="pmt_window_rot" unit="deg" x="0" y="90" z="0" />
       </physvol>
 
     <physvol name="phys_pmt_cathode">
       <volumeref ref="logic_pmt_cathode" />
-      <position name="pmt_cathode_pos" unit="mm" x="100/2 + 3.0 + 3e-06/2.0 + 1" y="0" z="0" />
+      <position name="pmt_cathode_pos" unit="mm" x="100/2 + 3.0 + 3e-06/2.0" y="0" z="0" />
       <rotation name="pmt_cathode_rot" unit="deg" x="0" y="90" z="0" />
       </physvol>
 
@@ -124,6 +128,11 @@
   <bordersurface name="cathode_border_surface" surfaceproperty="cathode_surface" >
     <physvolref ref="phys_pmt_window"/>
     <physvolref ref="phys_pmt_cathode"/>
+    </bordersurface>
+
+  <bordersurface name="optical_grease_border_surface" surfaceproperty="optical_grease_surface" >
+    <physvolref ref="phys_pmt_window"/>
+    <physvolref ref="phys_radiator_quartz"/>
     </bordersurface>
 
 </structure>
