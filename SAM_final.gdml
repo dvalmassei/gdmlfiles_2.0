@@ -6,9 +6,6 @@
     ]>
 <gdml xmlns:xsi="http://www.w3.org/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd" >
 
-<!--This is the verison I've used most recently-->
-<!--All dimensions, except quartz, are defined by constants d1-6. Simply edit these-->
-<!--To edit rotation, change the z-coord of DetBox_rot (negative mimic beam angles)-->
 <define>
    <constant name="d1" value="257.28" />
    <constant name="d2" value="211" />
@@ -127,8 +124,8 @@
     <volume name="pmt_window_vol" >
         <materialref ref="Quartz" />
         <solidref ref="solid_pmt_window" />
-        <auxiliary auxtype="Color" auxvalue="red"/>
         </volume>
+
     <volume name="pmt_cathode_vol" >
         <materialref ref="Cathode" />
         <solidref ref="solid_pmt_cathode" />
@@ -137,7 +134,7 @@
         <auxiliary auxtype="DetNo" auxvalue="7001"/>
         </volume>
 
-    <skinsurface name="skinsrf1" surfaceproperty="quartz_surface" >
+    <skinsurface name="radiator_skin_surface" surfaceproperty="quartz_surface" >
         <volumeref ref="quartz_vol"/>
         </skinsurface>
     <skinsurface name="botPlate_skinsrf" surfaceproperty="aluminium_surface" >
@@ -158,7 +155,6 @@
     <skinsurface name="rightPlate_bool_skinsrf" surfaceproperty="aluminium_surface" >
         <volumeref ref="rightPlate_bool_vol"/>
         </skinsurface>
-
     <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
         <volumeref ref="pmt_window_vol"/>
         </skinsurface>
