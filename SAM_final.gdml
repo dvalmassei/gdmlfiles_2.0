@@ -244,7 +244,7 @@
 
         </volume>
 
-    <bordersurface name="cathode_border_surface_1" surfaceproperty="cathode_surface" >
+    <bordersurface name="cathode_border_surface_1" surfaceproperty="r375_surface" >
         <physvolref ref="pmt1_window_phys"/>
         <physvolref ref="pmt1_cathode_phys"/>
         </bordersurface>
