@@ -22,6 +22,7 @@
   <box lunit="mm" name="solid_DetBox" x="500" y="500" z="200"/>
 
   <box lunit="mm" name="solid_radiator_quartz" x="100" y="76" z="10"/>
+  <tube name="solid_tube" rmin="115" rmax="116" z="100" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
 
 
   <tube name="solid_pmt_window" rmin="0" rmax="38.1" z="3.0" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
@@ -62,6 +63,10 @@
     <auxiliary auxtype="DetNo" auxvalue="7001"/>
     </volume>
 
+  <volume name="logic_tube" >
+    <materialref ref="Nylon" />
+    <solidref ref="solid_tube" />
+    </volume>
 
   <volume name="logic_DetBox" >
     <materialref ref="Air" />
@@ -73,6 +78,11 @@
       <rotation name="radiator_quartz_rot" unit="deg" x="0" y="0" z="0" />
       </physvol>
 
+    <physvol name="phys_tube">
+      <volumeref ref="logic_tube" />
+      <position name="pmt_tube" unit="mm" x="0" y="0" z="0" />
+      <rotation name="pmt_tube" unit="deg" x="0" y="0" z="0" />
+      </physvol>
 
     <physvol name="phys_pmt_window">
       <volumeref ref="logic_pmt_window" />
