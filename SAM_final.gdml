@@ -71,7 +71,7 @@
 
    <!--Aluminum-->
    <opticalsurface name="aluminium_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
-        <property name="REFLECTIVITY" ref="MiroIV_REFLECTIVITY_60DEG" />
+        <property name="REFLECTIVITY" ref="MiroIV_REFLECTIVITY_90DEG" />
         </opticalsurface>
 
    
