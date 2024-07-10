@@ -1116,5 +1116,7 @@
 5.9*eV 0.2089
 6.2*eV 0.206735"/>
 <matrix name="Optical_Grease_Efficiency" coldim="2" values="
-1.55*eV 0.75
-6.20*eV 0.75"/>
+1.55*eV 0.99
+4.15*eV 0.97
+4.10*eV 0.00
+6.20*eV 0.00"/>
