@@ -52,7 +52,7 @@
     <subtraction name="rightPlate_bool" >
             <first ref="rightPlate_box"/>
             <second ref="rightPlate_subtract"/>
-            <position name="rightPlate_subtract_pos" unit="mm" x="(d1/2)-(d1-d2) - 10" y="10" z="0"/>
+            <position name="rightPlate_subtract_pos" unit="mm" x="(d1/2)-(d1-d2) - 5" y="10" z="0"/>
             <rotation unit="deg" x="0" y="0" z="0"/>
             </subtraction>
 
@@ -211,7 +211,7 @@
             </physvol>
         <physvol name="rightPlate_box_0_phys">
             <volumeref ref="rightPlate_box_0_vol" />
-            <position name="rightPlate_box_0_pos" unit="mm" x="0" y="3" z="-(20/2 + 0.5/2)"/>
+            <position name="rightPlate_box_0_pos" unit="mm" x="5" y="3" z="-(20/2 + 0.5/2)"/>
             <rotation name="rightPlate_box_0_rot" unit="deg" x="0" y="180" z="0" />
             </physvol>
 
@@ -222,7 +222,7 @@
             </physvol>
          <physvol name="leftPlate_box_0_phys">
             <volumeref ref="rightPlate_box_0_vol" />
-            <position name="leftPlate_box_0_pos" unit="mm" x="0" y="3" z="20/2 + 0.5/2"/>
+            <position name="leftPlate_box_0_pos" unit="mm" x="5" y="3" z="20/2 + 0.5/2"/>
             <rotation name="leftPlate_box_0_rot" unit="deg" x="0" y="180" z="0" />
             </physvol>
 
