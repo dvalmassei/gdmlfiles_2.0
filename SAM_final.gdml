@@ -221,7 +221,7 @@
             <rotation name="leftPlate_tot_rot" unit="deg" x="0" y="180" z="0" />
             </physvol>
          <physvol name="leftPlate_box_0_phys">
-            <volumeref ref="leftPlate_box_0_vol" />
+            <volumeref ref="rightPlate_box_0_vol" />
             <position name="leftPlate_box_0_pos" unit="mm" x="-16/2" y="d6/2" z="20/2 + 0.5/2"/>
             <rotation name="leftPlate_box_0_rot" unit="deg" x="0" y="180" z="0" />
             </physvol>
