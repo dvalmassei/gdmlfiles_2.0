@@ -41,9 +41,9 @@
         v5x="0" v5y="0" v6x="0" v6y="0.5" v7x="d1-(d2+d4)" v7y="(d6-d5)+0.5" v8x="d1-(d2+d4)" v8y="(d6-d5)" dz="20/2" lunit= "mm"/>
 
     <!--NOTE: left and right plates are the same shape, so let's only do this once-->
-    <box name="rightPlate_box_0" x="16" y="10" z="0.5" lunit= "mm"/>
+    <box name="rightPlate_box_0" x="10" y="10" z="0.5" lunit= "mm"/>
 
-    <box name="rightPlate_box" x="d1 - 16" y="20" z="0.5" lunit= "mm"/>
+    <box name="rightPlate_box" x="d1 - 10" y="20" z="0.5" lunit= "mm"/>
 
     <arb8 name="rightPlate_subtract" v1x="0" v1y="0" v2x="d1-d2" v2y="0" v3x="d1-d2" v3y="-(d6-d5)"
         v4x="(d1-d2)-d4" v4y="-(d6-d5)" v5x="0" v5y="0" v6x="d1-d2" v6y="0" v7x="d1-d2" v7y="-(d6-d5)"
@@ -52,7 +52,7 @@
     <subtraction name="rightPlate_bool" >
             <first ref="rightPlate_box"/>
             <second ref="rightPlate_subtract"/>
-            <position name="rightPlate_subtract_pos" unit="mm" x="(d1/2)-(d1-d2) - 16" y="10" z="0"/>
+            <position name="rightPlate_subtract_pos" unit="mm" x="(d1/2)-(d1-d2) - 10" y="10" z="0"/>
             <rotation unit="deg" x="0" y="0" z="0"/>
             </subtraction>
 
@@ -211,7 +211,7 @@
             </physvol>
         <physvol name="rightPlate_box_0_phys">
             <volumeref ref="rightPlate_box_0_vol" />
-            <position name="rightPlate_box_0_pos" unit="mm" x="-16/2" y="d6/2" z="-(20/2 + 0.5/2)"/>
+            <position name="rightPlate_box_0_pos" unit="mm" x="0" y="3" z="-(20/2 + 0.5/2)"/>
             <rotation name="rightPlate_box_0_rot" unit="deg" x="0" y="180" z="0" />
             </physvol>
 
@@ -222,7 +222,7 @@
             </physvol>
          <physvol name="leftPlate_box_0_phys">
             <volumeref ref="rightPlate_box_0_vol" />
-            <position name="leftPlate_box_0_pos" unit="mm" x="-16/2" y="d6/2" z="20/2 + 0.5/2"/>
+            <position name="leftPlate_box_0_pos" unit="mm" x="0" y="3" z="20/2 + 0.5/2"/>
             <rotation name="leftPlate_box_0_rot" unit="deg" x="0" y="180" z="0" />
             </physvol>
 
