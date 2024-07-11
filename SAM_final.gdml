@@ -206,7 +206,7 @@
 
         <physvol name="rightPlate_bool_2_phys">
             <volumeref ref="rightPlate_bool_vol" />
-            <position name="rightPlate_tot_pos" unit="mm" x="d1/2 + 10" y="d6/2" z="-(20/2 + 0.5/2)"/>
+            <position name="rightPlate_tot_pos" unit="mm" x="d1/2 + 5" y="d6/2" z="-(20/2 + 0.5/2)"/>
             <rotation name="rightPlate_tot_rot" unit="deg" x="0" y="180" z="0" />
             </physvol>
         <physvol name="rightPlate_box_0_phys">
@@ -217,7 +217,7 @@
 
         <physvol name="leftPlate_bool_2_phys">
             <volumeref ref="rightPlate_bool_vol" />
-            <position name="leftPlate_tot_pos" unit="mm" x="d1/2 + 10" y="d6/2" z="20/2 + 0.5/2 "/>
+            <position name="leftPlate_tot_pos" unit="mm" x="d1/2 + 5" y="d6/2" z="20/2 + 0.5/2 "/>
             <rotation name="leftPlate_tot_rot" unit="deg" x="0" y="180" z="0" />
             </physvol>
          <physvol name="leftPlate_box_0_phys">
