@@ -60,7 +60,7 @@
 
    <!--Optical Properties-->
    <!--Quartz-->
-   <opticalsurface name="quartz_surface" model="glisur" finish="ground" type="dielectric_dielectric" value="0.995">
+   <opticalsurface name="quartz_surface" model="glisur" finish="ground" type="dielectric_dielectric" value="0.98">
         </opticalsurface>
 
     <!--Cathode-->
@@ -69,9 +69,14 @@
         <property name="REFLECTIVITY" ref="CathodeSurf_REFLECTIVITY" />
         </opticalsurface>
 
-   <!--Aluminum-->
+    <!--Aluminum-->
    <opticalsurface name="aluminium_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
         <property name="REFLECTIVITY" ref="MiroIV_REFLECTIVITY_90DEG" />
+        </opticalsurface>
+    
+    <!--Mylar-->
+   <opticalsurface name="mylar_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
+        <property name="REFLECTIVITY" ref="Mylar_REFLECTIVITY_90DEG" />
         </opticalsurface>
 
    
@@ -143,10 +148,10 @@
     <skinsurface name="topPlate_1_skinsrf" surfaceproperty="aluminium_surface" >
         <volumeref ref="topPlate_1_vol"/>
         </skinsurface>
-    <skinsurface name="topPlate_2_skinsrf" surfaceproperty="aluminium_surface" >
+    <skinsurface name="topPlate_2_skinsrf" surfaceproperty="mylar_surface" >
         <volumeref ref="topPlate_2_vol"/>
         </skinsurface>
-    <skinsurface name="frontPlate_1_skinsrf" surfaceproperty="aluminium_surface" >
+    <skinsurface name="frontPlate_1_skinsrf" surfaceproperty="mylar_surface" >
         <volumeref ref="frontPlate_1_vol"/>
         </skinsurface>
     <skinsurface name="frontPlate_2_skinsrf" surfaceproperty="aluminium_surface" >
