@@ -34,7 +34,9 @@
 
     <box name="topPlate_1" x="d2" y="20" z="0.5" lunit="mm"/>
     <box name="topPlate_2" x="d4" y="20" z="0.5" lunit="mm"/>
-    <box name="botPlate" x="d1" y="20" z="0.5" lunit="mm"/>
+    <box name="botPlate" x="d1-16" y="20" z="0.5" lunit="mm"/>
+    <box name="botPlate_1" x="16" y="20" z="0.5" lunit="mm"/>
+
 
     <box name="frontPlate_1" x="d5" y="20" z="0.5" lunit="mm"/>
     <arb8 name="frontPlate_2" v1x="0" v1y="0" v2x="0" v2y="0.5" v3x="d1-(d2+d4)" v3y="(d6-d5)+0.5" v4x="d1-(d2+d4)" v4y="(d6-d5)"
@@ -101,6 +103,10 @@
         <materialref ref="Aluminum_material"/>
         <solidref ref="botPlate"/>
         </volume>
+    <volume name="botPlate_1_vol">
+        <materialref ref="Aluminum_material"/>
+        <solidref ref="botPlate_1"/>
+        </volume>
 
     <volume name="rightPlate_bool_vol"> <!--Just copy this for left plate and change position-->
         <materialref ref="Aluminum_material"/>
@@ -151,6 +157,9 @@
     <skinsurface name="botPlate_skinsrf" surfaceproperty="aluminium_surface" >
         <volumeref ref="botPlate_vol"/>
         </skinsurface>
+    <skinsurface name="botPlate_skinsrf" surfaceproperty="mylar_surface" >
+        <volumeref ref="botPlate_1_vol"/>
+        </skinsurface>
     <skinsurface name="topPlate_1_skinsrf" surfaceproperty="aluminium_surface" >
         <volumeref ref="topPlate_1_vol"/>
         </skinsurface>
@@ -188,8 +197,13 @@
         <!--Light Guide Assembly-->
         <physvol name="botPlate_phys">
             <volumeref ref="botPlate_vol" />
-            <position name="botPlate_pos" unit="mm" x="d1/2" y="-0.5/2" z="0"/>
+            <position name="botPlate_pos" unit="mm" x="d1/2 + 8" y="-0.5/2" z="0"/>
             <rotation name="botPlate_rot" unit="deg" x="90" y="0" z="0" />
+            </physvol>
+        <physvol name="botPlate_1_phys">
+            <volumeref ref="botPlate_1_vol" />
+            <position name="botPlate_1_pos" unit="mm" x="0" y="-0.5/2" z="0"/>
+            <rotation name="botPlate_1_rot" unit="deg" x="90" y="0" z="0" />
             </physvol>
 
         <physvol name="topPlate_1_phys">
