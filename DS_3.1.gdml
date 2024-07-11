@@ -226,6 +226,10 @@
     <volumeref ref="lightguide_tube_vol"/>
     </skinsurface>
 
+  <skinsurface name="lg_plate_skin_surface" surfaceproperty="mylar_surface" >
+    <volumeref ref="lightguide_plate_vol"/>
+    </skinsurface>
+
   <skinsurface name="radiator_skin_surface" surfaceproperty="quartz_surface" >
     <volumeref ref="quartz_vol"/>
     </skinsurface>
