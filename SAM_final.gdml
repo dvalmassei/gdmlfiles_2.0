@@ -41,7 +41,7 @@
         v5x="0" v5y="0" v6x="0" v6y="0.5" v7x="d1-(d2+d4)" v7y="(d6-d5)+0.5" v8x="d1-(d2+d4)" v8y="(d6-d5)" dz="20/2" lunit= "mm"/>
 
     <!--NOTE: left and right plates are the same shape, so let's only do this once-->
-    <box name="rightPlate_box_0" x="10" y="10" z="0.5" lunit= "mm"/>
+    <box name="rightPlate_box_0" x="10" y="6" z="0.5" lunit= "mm"/>
 
     <box name="rightPlate_box" x="d1 - 10" y="20" z="0.5" lunit= "mm"/>
 
