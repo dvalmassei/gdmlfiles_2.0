@@ -1,60 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!DOCTYPE gdml [
-  <!ENTITY matrices SYSTEM "matrices.xml">
-]>
-
-
-<!--This is the verison I've used most recently-->
-<!--All dimensions, except quartz, are defined by constants d1-6. Simply edit these-->
-<!--To edit rotation, change the z-coord of DetBox_rot (negative mimic beam angles)-->
-
+    <!ENTITY matrices SYSTEM "showerMaxMatrices.xml">
+	<!ENTITY materials SYSTEM "showerMaxMaterials.xml">
+    ]>
 
 <gdml xmlns:xsi="http://www.w3.org/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd" >
+
 <define>
 
   <constant name="length" value="500" />
   <constant name="tubeRad" value="51/2" />
   <constant name="coneLength" value="tubeRad - 7.07" />
 
+    <position name="DetBox_pos" unit="mm" x="0" y="0" z="0" />
+    <rotation name="DetBox_rot" unit="deg" x="0" y="0" z="0" />
+
+    <position name="quartz_pos" unit="mm" x="0" y="0" z="0" />
+    <rotation name="quartz_rot" unit="deg" x="0" y="0" z="0" />
+
+    <position name="preRad_pos" unit="mm" x="0" y="0" z="10.5" />
+    <rotation name="preRad_rot" unit="deg" x="0" y="0" z="0" />
 
 
-  <position name="DetBox_pos" unit="mm" x="0" y="0" z="0" />
-  <rotation name="DetBox_rot" unit="deg" x="0" y="0" z="0" />
+    <position name="pmt1_window_pos" unit="mm" x="10/2 + length + 3.0/2" y="0" z="0" />
+    <rotation name="pmt1_window_rot" unit="deg" x="0" y="90" z="0" />
 
-  <position name="quartz_pos" unit="mm" x="0" y="0" z="0" />
-  <rotation name="quartz_rot" unit="deg" x="0" y="0" z="0" />
+    <position name="pmt1_cathode_pos" unit="mm" x="10/2 + length + 3 + 3e-06/2.0" y="0" z="0" />
+    <rotation name="pmt1_cathode_rot" unit="deg" x="0" y="90" z="0" />
 
-  <position name="preRad_pos" unit="mm" x="0" y="0" z="10.5" />
-  <rotation name="preRad_rot" unit="deg" x="0" y="0" z="0" />
+    <position name="lightguide_tube_pos" unit="mm" x="10/2 + coneLength + (length-coneLength)/2" y="0" z="0" />
+    <rotation name="lightguide_tube_rot" unit="deg" x="0" y="90" z="0" />
 
+    <position name="lightguide_cone_pos" unit="mm" x="10/2 + coneLength/2" y="0" z="0" />
+    <rotation name="lightguide_cone_rot" unit="deg" x="0" y="-90" z="0" />
 
-  <position name="pmt1_window_pos" unit="mm" x="10/2 + length + 3.0/2" y="0" z="0" />
-  <rotation name="pmt1_window_rot" unit="deg" x="0" y="90" z="0" />
+    <position name="lightguide_plate1_pos" unit="mm" x="0" y="5 + 0.5/2" z="0" />
+    <rotation name="lightguide_plate1_rot" unit="deg" x="90" y="0" z="0" />
 
-  <position name="pmt1_cathode_pos" unit="mm" x="10/2 + length + 3 + 3e-06/2.0" y="0" z="0" />
-  <rotation name="pmt1_cathode_rot" unit="deg" x="0" y="90" z="0" />
+    <position name="lightguide_plate2_pos" unit="mm" x="0" y="- 5 - 0.5/2" z="0" />
+    <rotation name="lightguide_plate2_rot" unit="deg" x="90" y="0" z="0" />
 
-  <position name="lightguide_tube_pos" unit="mm" x="10/2 + coneLength + (length-coneLength)/2" y="0" z="0" />
-  <rotation name="lightguide_tube_rot" unit="deg" x="0" y="90" z="0" />
+    <position name="lightguide_plate3_pos" unit="mm" x="0" y="0" z="5 + 0.5/2" />
+    <rotation name="lightguide_plate3_rot" unit="deg" x="0" y="0" z="0" />
 
-  <position name="lightguide_cone_pos" unit="mm" x="10/2 + coneLength/2" y="0" z="0" />
-  <rotation name="lightguide_cone_rot" unit="deg" x="0" y="-90" z="0" />
+    <position name="lightguide_plate4_pos" unit="mm" x="0" y="0" z="-5 - 0.5/2" />
+    <rotation name="lightguide_plate4_rot" unit="deg" x="0" y="0" z="0" />
 
-  <position name="lightguide_plate1_pos" unit="mm" x="0" y="5 + 0.5/2" z="0" />
-  <rotation name="lightguide_plate1_rot" unit="deg" x="90" y="0" z="0" />
-
-  <position name="lightguide_plate2_pos" unit="mm" x="0" y="- 5 - 0.5/2" z="0" />
-  <rotation name="lightguide_plate2_rot" unit="deg" x="90" y="0" z="0" />
-
-  <position name="lightguide_plate3_pos" unit="mm" x="0" y="0" z="5 + 0.5/2" />
-  <rotation name="lightguide_plate3_rot" unit="deg" x="0" y="0" z="0" />
-
-  <position name="lightguide_plate4_pos" unit="mm" x="0" y="0" z="-5 - 0.5/2" />
-  <rotation name="lightguide_plate4_rot" unit="deg" x="0" y="0" z="0" />
-
-  <position name="lightguide_plate5_pos" unit="mm" x="-5 - 0.5/2" y="0" z="0" />
-  <rotation name="lightguide_plate5_rot" unit="deg" x="0" y="90" z="90" />
+    <position name="lightguide_plate5_pos" unit="mm" x="-5 - 0.5/2" y="0" z="0" />
+    <rotation name="lightguide_plate5_rot" unit="deg" x="0" y="90" z="90" />
 
   &matrices;
   </define>
@@ -143,31 +137,30 @@
 
 
   <box lunit="mm" name="quartz" x="9.9" y="9.9" z="9.9"/>
-  <box lunit="mm" name="preRad" x="10" y="10" z="10"/>
 
-  <cone name="lightguide_cone" lunit="mm" aunit="rad" startphi="0" deltaphi="2*pi" rmin1="7.07" rmax1="7.57" rmin2="tubeRad" rmax2="tubeRad + 0.5" z="coneLength"/>
-  <tube name="lightguide_tube" rmin="tubeRad" rmax="tubeRad + 0.5" z="length - coneLength" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
+  <cone name="solid_lightguide_cone" lunit="mm" aunit="rad" startphi="0" deltaphi="2*pi" rmin1="7.07" rmax1="7.57" rmin2="tubeRad" rmax2="tubeRad + 0.5" z="coneLength"/>
+  <tube name="solid_lightguide_tube" rmin="tubeRad" rmax="tubeRad + 0.5" z="length - coneLength" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
 
-  <box lunit="mm" name="lightguide_plate" x="10" y="10" z="0.5"/>
+  <box lunit="mm" name="solid_lightguide_plate" x="10" y="10" z="0.5"/>
 
   <!--Optical Properties-->
   <!--Quartz-->
-  <opticalsurface name="surf1" model="glisur" finish="ground" type="dielectric_dielectric" value="0.98">
+  <opticalsurface name="quartz_surface" model="glisur" finish="ground" type="dielectric_dielectric" value="0.98">
     </opticalsurface>
   <!--Aluminum-->
-  <opticalsurface name="surf3" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
-    <property name="REFLECTIVITY" ref="Aluminium_Surf_Reflectivity" />
+  <opticalsurface name="aluminium_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
+    <property name="REFLECTIVITY" ref="MiroIV_REFLECTIVITY_90DEG" />
     </opticalsurface>
 
   <!--Mylar-->
-  <opticalsurface name="surf4" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
-    <property name="REFLECTIVITY" ref="REFLECTIVITY_MYLAR" />
+  <opticalsurface name="mylar_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
+    <property name="REFLECTIVITY" ref="Mylar_REFLECTIVITY_90DEG" />
     </opticalsurface>
 
   <!--Cathode-->
-  <opticalsurface name="surf2" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
-    <property name="REFLECTIVITY" ref="Cathode_Surf_Reflectivity" />
-    <property name="EFFICIENCY" ref="Cathode_Surf_Efficiency" />
+  <opticalsurface name="cathode_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
+    <property name="REFLECTIVITY" ref="CathodeSurf_REFLECTIVITY" />
+    <property name="EFFICIENCY" ref="Cathode_EFFICIENCY" />
     </opticalsurface>
 
 
@@ -178,13 +171,8 @@
 <structure>
   <!--Quartz-->
   <volume name="quartz_vol">
-    <materialref ref="Lucite" />
+    <materialref ref="Quartz" />
     <solidref ref="quartz" />
-    </volume>
-
-  <volume name="preRad_vol">
-    <materialref ref="W_mat" />
-    <solidref ref="preRad" />
     </volume>
 
   <volume name="pmt_window_vol" >
@@ -194,25 +182,26 @@
     </volume>
 
   <volume name="pmt_cathode_vol" >
-    <materialref ref="Bialkali" />
+    <materialref ref="Cathode" />
     <solidref ref="solid_pmt_cathode" />
     <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
-    <auxiliary auxtype="Color" auxvalue="blue"/>
+    <auxiliary auxtype="DetType" auxvalue="opticalphoton" />
+    <auxiliary auxtype="DetNo" auxvalue="7001"/>
     </volume>
 
   <volume name="lightguide_cone_vol">
-    <materialref ref="Al_mat"/>
-    <solidref ref="lightguide_cone"/>
+    <materialref ref="Aluminum_material"/>
+    <solidref ref="solid_lightguide_cone"/>
     </volume>
 
   <volume name="lightguide_tube_vol">
-    <materialref ref="Al_mat"/>
-    <solidref ref="lightguide_tube"/>
+    <materialref ref="Aluminum_material"/>
+    <solidref ref="solid_lightguide_tube"/>
     </volume>
 
   <volume name="lightguide_plate_vol">
-    <materialref ref="Al_mat"/>
-    <solidref ref="lightguide_plate"/>
+    <materialref ref="Aluminum_material"/>
+    <solidref ref="solid_lightguide_plate"/>
     </volume>
 
 
@@ -226,14 +215,6 @@
       <positionref ref="quartz_pos" />
       <rotationref ref="quartz_rot" />
       </physvol>
-
-    <!--
-    <physvol name="preRad_phys">
-      <volumeref ref="preRad_vol" />
-      <positionref ref="preRad_pos" />
-      <rotationref ref="preRad_rot" />
-      </physvol>
-    -->
 
     <physvol name="pmt1_window_phys">
       <volumeref ref="pmt_window_vol" />
@@ -309,23 +290,23 @@
     </volume>
 
 
-  <skinsurface name="skinsrf2" surfaceproperty="surf3" >
+  <skinsurface name="lg_cone_skin_surface" surfaceproperty="aluminium_surface" >
     <volumeref ref="lightguide_cone_vol"/>
     </skinsurface>
 
-  <skinsurface name="skinsrf3" surfaceproperty="surf3" >
+  <skinsurface name="lg_tube_skin_surface" surfaceproperty="aluminium_surface" >
     <volumeref ref="lightguide_tube_vol"/>
     </skinsurface>
-  <!--
-  <skinsurface name="skinsrf4" surfaceproperty="surf3" >
-    <volumeref ref="lightguide_plate_vol"/>
-    </skinsurface>
-    -->
-  <skinsurface name="skinsrf1" surfaceproperty="surf1" >
+
+  <skinsurface name="radiator_skin_surface" surfaceproperty="quartz_surface" >
     <volumeref ref="quartz_vol"/>
     </skinsurface>
 
-  <bordersurface name="bordersrf1" surfaceproperty="surf2" >
+  <skinsurface name="pmt_window_skin_surface" surfaceproperty="quartz_surface" >
+    <volumeref ref="pmt_window_vol"/>
+    </skinsurface>
+
+  <bordersurface name="cahtode_border_surface" surfaceproperty="cathode_surface" >
       <physvolref ref="pmt1_window_phys"/>
       <physvolref ref="pmt1_cathode_phys"/>
       </bordersurface>
