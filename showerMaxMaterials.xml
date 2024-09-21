@@ -82,4 +82,9 @@
 	<composite n="1" ref="Caesium" />
 	<composite n="1" ref="Antimony" />
 </material>
+<material formula="petgw" name="PETGW" >
+	<D value="4.0"/>
+	<fraction n="0.75" ref="Tungsten"/>
+	<fraction n="0.25" ref="Nylon"/>
+<material/>
 </materials>
