@@ -50,7 +50,7 @@
     </volume>
 
   <volume name="logic_radiator_W" >
-    <materialref ref="PETGW" />
+    <materialref ref="Tungsten_material" />
     <solidref ref="solid_radiator_W" />
     </volume>
 
