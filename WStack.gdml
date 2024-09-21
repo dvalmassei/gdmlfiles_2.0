@@ -86,7 +86,7 @@
 
     <physvol name="phys_radiator_quartz_2">
       <volumeref ref="logic_radiator_quartz" />
-      <position name="radiator_quartz_pos_2" unit="mm" x="0" y="0" z="2.8" />
+      <position name="radiator_quartz_pos_2" unit="mm" x="0" y="0" z="3.8" />
       <rotation name="radiator_quartz_rot_2" unit="deg" x="0" y="0" z="0" />
       </physvol>
 
