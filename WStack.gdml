@@ -91,6 +91,33 @@
       </physvol>
 
 
+    <physvol name="phys_radiator_W">
+      <volumeref ref="logic_radiator_W" />
+      <position name="radiator_W_pos" unit="mm" x="0" y="0" z="5.7" />
+      <rotation name="radiator_W_rot" unit="deg" x="0" y="0" z="0" />
+      </physvol>
+
+    <physvol name="phys_radiator_quartz_2">
+      <volumeref ref="logic_radiator_quartz" />
+      <position name="radiator_quartz_pos_2" unit="mm" x="0" y="0" z="7.6" />
+      <rotation name="radiator_quartz_rot_2" unit="deg" x="0" y="0" z="0" />
+      </physvol>
+
+
+    <physvol name="phys_radiator_W">
+      <volumeref ref="logic_radiator_W" />
+      <position name="radiator_W_pos" unit="mm" x="0" y="0" z="9.5" />
+      <rotation name="radiator_W_rot" unit="deg" x="0" y="0" z="0" />
+      </physvol>
+
+
+
+
+
+
+
+
+
     <physvol name="phys_pmt_window">
       <volumeref ref="logic_pmt_window" />
       <position name="pmt_window_pos" unit="mm" x="100/2 + 3.0/2.0" y="0" z="0" />
