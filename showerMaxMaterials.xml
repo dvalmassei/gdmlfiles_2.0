@@ -86,5 +86,5 @@
 	<D value="4.0"/>
 	<fraction n="0.75" ref="Tungsten"/>
 	<fraction n="0.25" ref="Nylon"/>
-<material/>
+</material>
 </materials>
