@@ -11,7 +11,7 @@
 	xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
 
  <define>
-  <constant name="W_thickness" value="4" />
+  <constant name="W_thickness" value="10" />
   <constant name="quartz_thickness" value="2" />
   <constant name="spacing" value="0.4" />
   &matrices;
