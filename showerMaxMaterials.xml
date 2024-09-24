@@ -80,7 +80,7 @@
 	<composite n="2" ref="Oxygen" />
 </material>
 <material formula="C14H20O2S" name="PETG" >
-	<D value="1.04" />
+	<D value="1.23" />
 	<composite n="14" ref="Carbon" />
 	<composite n="20" ref="Hydrogen" />
 	<composite n="2" ref="Oxygen" />
