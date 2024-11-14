@@ -81,21 +81,21 @@
 
     <physvol name="phys_radiator_W_0">
       <volumeref ref="logic_radiator_W" />
-      <position name="radiator_W_pos_0" unit="mm" x="0" y="0" z="-2*(quartz_thickness/2 + spacing + W_thickness/2)" />
+      <position name="radiator_W_pos_0" unit="mm" x="0" y="0" z="-3*(quartz_thickness/2 + spacing + W_thickness/2)" />
       <rotation name="radiator_W_rot_0" unit="deg" x="0" y="0" z="0" />
       </physvol>
     
 
     <physvol name="phys_radiator_quartz_1">
       <volumeref ref="logic_radiator_quartz" />
-      <position name="radiator_quartz_pos_1" unit="mm" x="0" y="0" z="-1*(quartz_thickness/2 + spacing + W_thickness/2)" />
+      <position name="radiator_quartz_pos_1" unit="mm" x="0" y="0" z="-2*(quartz_thickness/2 + spacing + W_thickness/2)" />
       <rotation name="radiator_quartz_rot_1" unit="deg" x="0" y="0" z="0" />
       </physvol>
 
 
     <physvol name="phys_radiator_W_1">
       <volumeref ref="logic_radiator_W" />
-      <position name="radiator_W_pos_1" unit="mm" x="0" y="0" z="0*(quartz_thickness/2 + spacing + W_thickness/2)" />
+      <position name="radiator_W_pos_1" unit="mm" x="0" y="0" z="-1*(quartz_thickness/2 + spacing + W_thickness/2)" />
       <rotation name="radiator_W_rot_1" unit="deg" x="0" y="0" z="0" />
       </physvol>
 
