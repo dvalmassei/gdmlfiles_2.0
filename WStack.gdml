@@ -11,7 +11,7 @@
 	xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
 
  <define>
-  <constant name="W_thickness" value="10" />
+  <constant name="W_thickness" value="10.303" />
   <constant name="quartz_thickness" value="2" />
   <constant name="spacing" value="0.4" />
   &matrices;
@@ -81,7 +81,7 @@
 
     <physvol name="phys_radiator_W_0">
       <volumeref ref="logic_radiator_W" />
-      <position name="radiator_W_pos_0" unit="mm" x="0" y="0" z="(quartz_thickness/2 + spacing + W_thickness/2)" />
+      <position name="radiator_W_pos_0" unit="mm" x="0" y="0" z="1*(quartz_thickness/2 + spacing + W_thickness/2)" />
       <rotation name="radiator_W_rot_0" unit="deg" x="0" y="0" z="0" />
       </physvol>
     
@@ -118,98 +118,6 @@
       <rotation name="radiator_quartz_rot_6" unit="deg" x="0" y="0" z="0" />
       </physvol>
 
-
-    <physvol name="phys_radiator_W_6">
-      <volumeref ref="logic_radiator_W" />
-      <position name="radiator_W_pos_6" unit="mm" x="0" y="0" z="7*(quartz_thickness/2 + spacing + W_thickness/2)" />
-      <rotation name="radiator_W_rot_6" unit="deg" x="0" y="0" z="0" />
-      </physvol>
-
-    <physvol name="phys_radiator_quartz_7">
-      <volumeref ref="logic_radiator_quartz" />
-      <position name="radiator_quartz_pos_7" unit="mm" x="0" y="0" z="8*(quartz_thickness/2 + spacing + W_thickness/2)" />
-      <rotation name="radiator_quartz_rot_7" unit="deg" x="0" y="0" z="0" />
-      </physvol>
-
-
-    <physvol name="phys_radiator_W_7">
-      <volumeref ref="logic_radiator_W" />
-      <position name="radiator_W_pos_7" unit="mm" x="0" y="0" z="9*(quartz_thickness/2 + spacing + W_thickness/2)" />
-      <rotation name="radiator_W_rot_7" unit="deg" x="0" y="0" z="0" />
-      </physvol>
-
-    <physvol name="phys_radiator_W_3">
-      <volumeref ref="logic_radiator_W" />
-      <position name="radiator_W_pos_3" unit="mm" x="0" y="0" z="-1*(quartz_thickness/2 + spacing + W_thickness/2)" />
-      <rotation name="radiator_W_rot_3" unit="deg" x="0" y="0" z="0" />
-      </physvol>
-    
-
-    <physvol name="phys_radiator_quartz_3">
-      <volumeref ref="logic_radiator_quartz" />
-      <position name="radiator_quartz_pos_3" unit="mm" x="0" y="0" z="-2*(quartz_thickness/2 + spacing + W_thickness/2)" />
-      <rotation name="radiator_quartz_rot_3" unit="deg" x="0" y="0" z="0" />
-      </physvol>
-
-
-    <physvol name="phys_radiator_W_4">
-      <volumeref ref="logic_radiator_W" />
-      <position name="radiator_W_pos_4" unit="mm" x="0" y="0" z="-3*(quartz_thickness/2 + spacing + W_thickness/2)" />
-      <rotation name="radiator_W_rot_4" unit="deg" x="0" y="0" z="0" />
-      </physvol>
-
-    <physvol name="phys_radiator_quartz_4">
-      <volumeref ref="logic_radiator_quartz" />
-      <position name="radiator_quartz_pos_4" unit="mm" x="0" y="0" z="-4*(quartz_thickness/2 + spacing + W_thickness/2)" />
-      <rotation name="radiator_quartz_rot_4" unit="deg" x="0" y="0" z="0" />
-      </physvol>
-
-
-    <physvol name="phys_radiator_W_5">
-      <volumeref ref="logic_radiator_W" />
-      <position name="radiator_W_pos_5" unit="mm" x="0" y="0" z="-5*(quartz_thickness/2 + spacing + W_thickness/2)" />
-      <rotation name="radiator_W_rot_5" unit="deg" x="0" y="0" z="0" />
-      </physvol>
-
-
-    <physvol name="phys_radiator_quartz_8">
-      <volumeref ref="logic_radiator_quartz" />
-      <position name="radiator_quartz_pos_8" unit="mm" x="0" y="0" z="-6*(quartz_thickness/2 + spacing + W_thickness/2)" />
-      <rotation name="radiator_quartz_rot_8" unit="deg" x="0" y="0" z="0" />
-      </physvol>
-
-
-    <physvol name="phys_radiator_W_8">
-      <volumeref ref="logic_radiator_W" />
-      <position name="radiator_W_pos_8" unit="mm" x="0" y="0" z="-7*(quartz_thickness/2 + spacing + W_thickness/2)" />
-      <rotation name="radiator_W_rot_8" unit="deg" x="0" y="0" z="0" />
-      </physvol>
-
-    <physvol name="phys_radiator_quartz_9">
-      <volumeref ref="logic_radiator_quartz" />
-      <position name="radiator_quartz_pos_9" unit="mm" x="0" y="0" z="-8*(quartz_thickness/2 + spacing + W_thickness/2)" />
-      <rotation name="radiator_quartz_rot_9" unit="deg" x="0" y="0" z="0" />
-      </physvol>
-
-
-    <physvol name="phys_radiator_W_9">
-      <volumeref ref="logic_radiator_W" />
-      <position name="radiator_W_pos_9" unit="mm" x="0" y="0" z="-9*(quartz_thickness/2 + spacing + W_thickness/2)" />
-      <rotation name="radiator_W_rot_9" unit="deg" x="0" y="0" z="0" />
-      </physvol>
-
-    <physvol name="phys_radiator_quartz_10">
-      <volumeref ref="logic_radiator_quartz" />
-      <position name="radiator_quartz_pos_10" unit="mm" x="0" y="0" z="-10*(quartz_thickness/2 + spacing + W_thickness/2)" />
-      <rotation name="radiator_quartz_rot_10" unit="deg" x="0" y="0" z="0" />
-      </physvol>
-
-
-    <physvol name="phys_radiator_W_10">
-      <volumeref ref="logic_radiator_W" />
-      <position name="radiator_W_pos_10" unit="mm" x="0" y="0" z="-11*(quartz_thickness/2 + spacing + W_thickness/2)" />
-      <rotation name="radiator_W_rot_10" unit="deg" x="0" y="0" z="0" />
-      </physvol>
 
 
 
