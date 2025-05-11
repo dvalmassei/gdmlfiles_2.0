@@ -106,7 +106,7 @@
         <materialref ref="Quartz" />
         <solidref ref="solid_pmt_window" />
         </volume>
-
+    <!--
     <volume name="pmt2_cathode_logic" >
         <materialref ref="Cathode" />
         <solidref ref="solid_pmt_cathode" />
@@ -114,7 +114,7 @@
         <auxiliary auxtype="DetType" auxvalue="opticalphoton" />
         <auxiliary auxtype="DetNo" auxvalue="7002"/>
         </volume>
-    
+    -->
                     <!--Plastic Enclosure-->
     <volume name="enclosure_backPlate_logic">
         <materialref ref="Nylon"/>
@@ -346,12 +346,12 @@
         <physvolref ref="pmt1_window_phys"/>
         <physvolref ref="pmt1_cathode_phys"/>
         </bordersurface>
-
+<!--
     <bordersurface name="cathode_border_surface_2" surfaceproperty="cathode_surface" >
         <physvolref ref="pmt2_window_phys"/>
         <physvolref ref="pmt2_cathode_phys"/>
         </bordersurface>
-    
+-->   
   </structure>
 
 
