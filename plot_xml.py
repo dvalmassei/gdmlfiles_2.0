@@ -11,7 +11,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def main():
-    df = pd.read_xml('mainDetmatrices.xml')
+    df = pd.read_xml('matrices.xml')
     
     
     for j in range(len(df['name'])):
