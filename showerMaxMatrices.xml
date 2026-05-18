@@ -766,7 +766,7 @@
 5.64*eV 0.28276800
 5.90*eV 0.29266600
 6.20*eV 0.29709100"/>
-<matrix name="Cathode_EFFICIENCY_with_grease" coldim="2" values="
+<matrix name="Cathode_EFFICIENCY_with_cement" coldim="2" values="
 1.55*eV 0.00107604
 1.58*eV 0.00107604
 1.61*eV 0.00107604
@@ -813,7 +813,7 @@
 3.65*eV 0.29844600
 3.76*eV 0.29746800
 3.87*eV 0.29577600
-4.0*eV 0
+4.0*eV  0.29090200
 4.13*eV 0
 4.28*eV 0
 4.43*eV 0
