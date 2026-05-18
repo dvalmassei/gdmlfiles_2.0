@@ -11,13 +11,13 @@ import matplotlib.pyplot as plt
 
 
 plt.style.use('seaborn-v0_8')
-df1 = pd.read_csv('~/Downloads/9305KB_qe.csv')
+df1 = pd.read_csv('9305KB_qe.csv')
 df1 = df1.sort_values(by='wavelength',ascending=False)
 
-df2 = pd.read_csv('~/Downloads/r375_qe.csv')
+df2 = pd.read_csv('r375_qe.csv')
 df2 = df2.sort_values(by='wavelength',ascending=False)
 
-df3 = pd.read_csv('~/Downloads/9305QKB_qe.csv')
+df3 = pd.read_csv('9305QKB_qe.csv')
 df3 = df3.sort_values(by='wavelength',ascending=True)
 
 
@@ -29,7 +29,7 @@ plt.scatter(df2['wavelength'],df2['QE'],s=20,marker='^',label='Hamamatsu R375')
 plt.ylabel('Quantum Efficiency %')
 plt.xlabel('Wavelength (nm)')
 plt.legend()
-plt.yscale('log')
+#plt.yscale('log')
 plt.show()
 
 
@@ -37,13 +37,13 @@ plt.show()
 length = len(df3['wavelength'])
 for i in range(length):
     print(f'{1239.8/df3['wavelength'][length-i-1]:.6f}*eV {df3['QE'][length-i-1]:.6f}')
-'''
+
 
 length = len(df2['wavelength'])
 for i in range(length):
     print(f'{1239.8/df2['wavelength'][length-i-1]:.6f}*eV {df2['QE'][length-i-1]:.6f}')
     
-'''
+
 length = len(df1['wavelength'])
 for i in range(length):
     print(f'{1239.8/df1['wavelength'][length-i-1]:.6f}*eV {df1['QE'][length-i-1]:.6f}')
