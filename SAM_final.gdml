@@ -217,7 +217,7 @@
             </physvol>
         <physvol name="botPlate_1_phys">
             <volumeref ref="botPlate_1_vol" />
-            <position name="botPlate_1_pos" unit="mm" x="0" y="-0.5/2" z="0"/>
+            <position name="botPlate_1_pos" unit="mm" x="4 + 0.5/2" y="-0.5/2" z="0"/>
             <rotation name="botPlate_1_rot" unit="deg" x="90" y="0" z="0" />
             </physvol>
 
