@@ -95,45 +95,55 @@
     <volume name="quartz_vol">
         <materialref ref="Quartz" />
         <solidref ref="quartz" />
+        <auxiliary auxtype="Alpha" auxvalue="0.4"/>
+        <auxiliary auxtype="Color" auxvalue="green"/>
         </volume>
 
     <!--Light Guide Plates Physical Volumes-->
 
     <volume name="botPlate_vol">
         <materialref ref="Aluminum_material"/>
+        <auxiliary auxtype="Alpha" auxvalue="0.1"/>
         <solidref ref="botPlate"/>
         </volume>
     <volume name="botPlate_1_vol">
         <materialref ref="Aluminum_material"/>
+        <auxiliary auxtype="Alpha" auxvalue="0.1"/>
         <solidref ref="botPlate_1"/>
         </volume>
 
     <volume name="rightPlate_bool_vol"> <!--Just copy this for left plate and change position-->
         <materialref ref="Aluminum_material"/>
+        <auxiliary auxtype="Alpha" auxvalue="0.1"/>
         <solidref ref="rightPlate_bool"/>
         </volume>
     <volume name="rightPlate_box_0_vol"> <!--Just copy this for left plate and change position-->
         <materialref ref="Aluminum_material"/>
+        <auxiliary auxtype="Alpha" auxvalue="0.1"/>
         <solidref ref="rightPlate_box_0"/>
         </volume>
 
     <volume name="topPlate_1_vol">
         <materialref ref="Aluminum_material"/>
+        <auxiliary auxtype="Alpha" auxvalue="0.1"/>
         <solidref ref="topPlate_1"/>
         </volume>
 
     <volume name="topPlate_2_vol">
         <materialref ref="Aluminum_material"/>
+        <auxiliary auxtype="Alpha" auxvalue="0.1"/>
         <solidref ref="topPlate_2"/>
         </volume>
 
     <volume name="frontPlate_1_vol">
         <materialref ref="Aluminum_material"/>
+        <auxiliary auxtype="Alpha" auxvalue="0.1"/>
         <solidref ref="frontPlate_1"/>
         </volume>
 
     <volume name="frontPlate_2_vol">
         <materialref ref="Aluminum_material"/>
+        <auxiliary auxtype="Alpha" auxvalue="0.1"/>
         <solidref ref="frontPlate_2"/>
         </volume>
 
@@ -141,6 +151,8 @@
     <volume name="pmt_window_vol" >
         <materialref ref="Quartz" />
         <solidref ref="solid_pmt_window" />
+        <auxiliary auxtype="Alpha" auxvalue="0.4"/>
+        <auxiliary auxtype="Color" auxvalue="blue"/>
         </volume>
 
     <volume name="pmt_cathode_vol" >
@@ -149,6 +161,8 @@
         <auxiliary auxtype="SensDet" auxvalue="PhotoCathode"/>
         <auxiliary auxtype="DetType" auxvalue="opticalphoton" />
         <auxiliary auxtype="DetNo" auxvalue="7001"/>
+        <auxiliary auxtype="Alpha" auxvalue="0.4"/>
+        <auxiliary auxtype="Color" auxvalue="yellow"/>
         </volume>
 
     <skinsurface name="radiator_skin_surface" surfaceproperty="quartz_surface" >
@@ -185,6 +199,7 @@
     <!--Detector Assembly-->
     <volume name="DetBox_vol" >
         <materialref ref="Air" />
+        <auxiliary auxtype="Alpha" auxvalue="0.0"/>
         <solidref ref="DetBox" />
 
         <physvol name="quartz_phys">
@@ -271,6 +286,7 @@
     <!--World Assembly-->
     <volume name="World" >
       <materialref ref="Air" />
+      <auxiliary auxtype="Alpha" auxvalue="0.0"/>
       <solidref ref="WorldBox" />
 
       <physvol name="DetBox_phys" >
