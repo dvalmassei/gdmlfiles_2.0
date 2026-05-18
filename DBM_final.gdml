@@ -35,7 +35,7 @@
 
   <opticalsurface name="cathode_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
     <property name="REFLECTIVITY" ref="CathodeSurf_REFLECTIVITY" />
-    <property name="EFFICIENCY" ref="Cathode_EFFICIENCY_with_grease" />
+    <property name="EFFICIENCY" ref="Cathode_EFFICIENCY" />
     </opticalsurface>
 
  </solids>
