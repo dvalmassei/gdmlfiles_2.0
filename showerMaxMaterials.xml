@@ -97,4 +97,14 @@
 	<fraction n="0.75" ref="Tungsten"/>
 	<fraction n="0.25" ref="PETG"/>
 </material>
+
+<!--Lucite-->
+<material formula="(C5O2H8)n" name="Lucite">
+	<D value="1.18"/>
+	<fraction n="0.080538" ref="Hydrogen"/>
+	<fraction n="0.599848" ref="Carbon"/>
+	<fraction n="0.319614" ref="Oxygen"/>
+	<property name="RINDEX"    ref="RINDEX_LUCITE"/>
+	<property name="ABSLENGTH" ref="ABSLENGTH_LUCITE"/>
+</material>
 </materials>

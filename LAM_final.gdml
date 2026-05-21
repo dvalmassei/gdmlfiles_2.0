@@ -85,7 +85,7 @@
 <structure>
     <!--LOGIC VOLUMES-->
     <volume name="radiator_quartz_logic" >
-        <materialref ref="Quartz" />
+        <materialref ref="Lucite" />
         <solidref ref="radiator" />
         </volume>
 
