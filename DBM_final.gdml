@@ -29,12 +29,12 @@
   <tube name="solid_pmt_cathode" rmin="0" rmax="38.1" z="3e-06" deltaphi="2*pi" startphi="0" aunit="rad" lunit="mm"/>
 
   <!--Optical Properties-->
-  <opticalsurface name="quartz_surface" model="glisur" finish="polished" type="dielectric_dielectric" value="0.998" >
+  <opticalsurface name="quartz_surface" model="glisur" finish="polished" type="dielectric_dielectric" value="1.0" >
 	</opticalsurface>
 
   <opticalsurface name="cathode_surface" model="glisur" finish="polished" type="dielectric_metal" value="1.0">
     <property name="REFLECTIVITY" ref="CathodeSurf_REFLECTIVITY" />
-    <property name="EFFICIENCY" ref="Cathode_EFFICIENCY" />
+    <property name="EFFICIENCY" ref="Cathode_EFFICIENCY_with_cement" />
     </opticalsurface>
 
  </solids>
