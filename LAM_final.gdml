@@ -11,7 +11,7 @@
 <!--This is the finalized LAM gdml-->
 <define>
     <!-- Radiator and Light Guide Parameters-->
-    <constant name="thickness" value="10" />
+    <constant name="thickness" value="12.7" />
     <constant name="offset" value="60" />
 
     <constant name="d3" value="30" />  <!--Z distance from PMT to Quartz-->
