@@ -186,11 +186,11 @@
     <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
         <volumeref ref="pmt1_window_logic"/>
         </skinsurface>
-
+<!--
     <skinsurface name="quartz_skin_surface" surfaceproperty="quartz_surface" >
         <volumeref ref="pmt2_window_logic"/>
         </skinsurface>
-
+-->
     <volume name="DetBox_logic" >
         <materialref ref="Air" />
         <solidref ref="DetBox" />
@@ -345,12 +345,12 @@
         <physvolref ref="pmt1_window_phys"/>
         <physvolref ref="pmt1_cathode_phys"/>
         </bordersurface>
-
+<!--
     <bordersurface name="cathode_border_surface_2" surfaceproperty="cathode_surface" >
         <physvolref ref="pmt2_window_phys"/>
         <physvolref ref="pmt2_cathode_phys"/>
         </bordersurface>
-
+-->
   </structure>
 
 
