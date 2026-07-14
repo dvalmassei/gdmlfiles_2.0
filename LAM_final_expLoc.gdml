@@ -26,7 +26,7 @@
 &materials;   
 
 <solids>
-    <box lunit="mm" name="WorldBox" x="detBox_r + 500" y="detBox_r + 500" z="500"/>
+    <box lunit="mm" name="WorldBox" x="detBox_r + 1000" y="detBox_r + 1000" z="500"/>
     <box lunit="mm" name="DetBox" x="400" y="400" z="200"/>
 
     <box lunit="mm" name="radiator_quartz" x="length" y="height" z="thickness"/>
@@ -329,7 +329,7 @@
 
 
     <volume name="World" >
-        <materialref ref="Air" />
+        <materialref ref="vacuum" />
         <solidref ref="WorldBox" />
 
 
