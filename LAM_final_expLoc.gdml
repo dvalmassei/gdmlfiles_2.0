@@ -335,8 +335,8 @@
 
         <physvol name="DetBox_phys" >
             <volumeref ref="DetBox_logic" />
-            <position name="DetBox_pos" unit="mm" x="0" y="detBox_r" z="0" />
-	        <rotation name="DetBox_rot" unit="deg" x="0" y="0" z="-pi/4" />
+            <position name="DetBox_pos" unit="mm" x="detBox_r" y="0" z="0" />
+	        <rotation name="DetBox_rot" unit="deg" x="0" y="0" z="pi" />
             </physvol>
 
     </volume>
